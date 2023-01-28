@@ -35,7 +35,7 @@ public class Boletin21_2 {
             } else {
                 System.out.println("La nota " + nombreUsuario + " es : " + notaUsuario);
             }
-            System.out.println("La notas ordenadas crecientes  son :" + getListaOrdenadas(nombres, notas));
+            System.out.println("La notas ordenadas crecientes  son :" + getListaOrdenadas(notas));
         } catch (Exception ex) {
 
             System.out.println(ex.getMessage());
@@ -123,10 +123,10 @@ public class Boletin21_2 {
 
     }
 
-    private String getListaOrdenadas(String[] nombres, double[] notas) {
+    private String getListaOrdenadas(double[] notas) {
         String cadena = "";
+         Arrays.sort(notas);
         for (int i = 0; i < notas.length; i++) {
-            Arrays.sort(notas);
             cadena += "\n" + notas[i];
         }
 
