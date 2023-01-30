@@ -3,8 +3,8 @@ package boletin22;
 
 public class Futbol {
 
-    private static final int JORNADA = 36;
-    private final String[] EQUIPO = new String[]{"Celta", "Bilbao", "Malaga", "Malaga", "R.Madrid", "R.sociedad",
+    public static final int JORNADA = 36;
+    public final String[] EQUIPO = new String[]{"Celta", "Bilbao", "Malaga", "Malaga", "R.Madrid", "R.sociedad",
         "Atletico ", "Villareal", "Beltis", "Osasuna", "Athletic", "Rayo", "Mallorca", "Almeria", "Girona", "Valencia", "Espanyol", "Getafe", "Valladolid", "Cadiz", "Elche"};
     private final int[][] goles = new int[EQUIPO.length][JORNADA];
 
@@ -51,7 +51,7 @@ public class Futbol {
         return cadena + espacios;
     }
 
-    public MarcadorEquipo[] sumaGoles() {
+   /* public MarcadorEquipo[] sumaGoles() {
         MarcadorEquipo[] Nombre = new MarcadorEquipo[EQUIPO.length];
 
         int golSuma;
@@ -73,24 +73,23 @@ public class Futbol {
         }
        
         return Nombre;
-    }
-
-  /*  public void marcadorGolesMaximo(int goles[][]) {
-        int maximo;
-        int golMaxima = 5;
-        for (int i = 0; i < EQUIPO.length; i++) {
-
-            for (int j = 0; j < JORNADA; j++) {
-
-                maximo = JORNADA;
-                if (golMaxima > i) {
-                    System.out.println(maximo);
-
-                }
-
-            }
-        }
-
     }*/
 
-}
+   public String  marcadorGolesMaximo(int goles[][]) {
+       int golMarcado=200;
+       int sumaGoles=0;
+        for (int i = 0; i < EQUIPO.length; i++) {
+            for (int j = 0; j < JORNADA; j++) {
+          sumaGoles +=goles[i][j];
+                if ( sumaGoles>golMarcado) {
+                    golMarcado=goles[i][j];
+                    System.out.print(JORNADA);
+                } 
+            }
+            System.out.println("");
+            }
+        return null;
+     
+        }
+
+      }

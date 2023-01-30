@@ -6,9 +6,9 @@ public class Main {
         Futbol ful = new Futbol();
         int[][] aux;
         aux = ful.crearMarcador();
-        ful.visualizarMarcador(aux);
-      ful.sumaGoles();
-     // ful.marcadorGolesMaximo(aux);
+        //ful.visualizarMarcador(aux);
+     // ful.sumaGoles();
+      ful.marcadorGolesMaximo(aux);
 
        
         

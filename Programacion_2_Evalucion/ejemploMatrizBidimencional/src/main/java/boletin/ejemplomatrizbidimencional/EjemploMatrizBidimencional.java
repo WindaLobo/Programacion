@@ -6,7 +6,9 @@ public class EjemploMatrizBidimencional {
         Matrices obx = new Matrices();
         int[][] aux;
         aux = obx.notas();
-        obx.MediaAlumno(aux);
+        obx.mediaAlumno(aux);
+        obx.visualizar(aux);
+        obx.mediaModulo(aux);
 
     }
 }
