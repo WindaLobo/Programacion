@@ -1,10 +1,9 @@
 package boletin22;
 
-
 public class Futbol {
 
     public static final int JORNADA = 36;
-    public final String[] EQUIPO = new String[]{"Celta", "Bilbao", "Malaga", "Malaga", "R.Madrid", "R.sociedad",
+    public final String[] EQUIPO = new String[]{"Celta", "Bilbao", "Barcelona", "Malaga", "R.Madrid", "R.sociedad",
         "Atletico ", "Villareal", "Beltis", "Osasuna", "Athletic", "Rayo", "Mallorca", "Almeria", "Girona", "Valencia", "Espanyol", "Getafe", "Valladolid", "Cadiz", "Elche"};
     private final int[][] goles = new int[EQUIPO.length][JORNADA];
 
@@ -51,45 +50,46 @@ public class Futbol {
         return cadena + espacios;
     }
 
-   /* public MarcadorEquipo[] sumaGoles() {
-        MarcadorEquipo[] Nombre = new MarcadorEquipo[EQUIPO.length];
-
-        int golSuma;
+    public int golesJornadas(int goles[][]) {
+        int maximoGoles;
+        int indice = 0;
 
         System.out.println("****** Total de goles de la  Liga 2022 ******:");
-        String titulo = "Equipo    " + "  N° ";
 
-        System.out.println(titulo);
+        for (int j = 0; j < JORNADA; j++) {
+            maximoGoles = 0;
 
-        for (int i = 0; i < EQUIPO.length; i++) {
-            golSuma = 0;
-            System.out.println(ajustarCadena(EQUIPO[i], 11) + ": ");
-
-            for (int j = 0; j < JORNADA; j++) {
-                golSuma += goles[i][j];
+            for (int i = 0; i < EQUIPO.length; i++) {
+                if (goles[i][j] > maximoGoles) {
+                    maximoGoles = goles[i][j];
+                    indice = i;
+                }
             }
-            MarcadorEquipo obx = new MarcadorEquipo(EQUIPO[i], golSuma);
-            Nombre[i] = obx;
+            System.out.print("X" + (j + 1) + " : " + EQUIPO[indice] + "\n");
         }
-       
-        return Nombre;
-    }*/
+        return 0;
+    }
 
-   public String  marcadorGolesMaximo(int goles[][]) {
-       int golMarcado=200;
-       int sumaGoles=0;
+    public void equipoMasGoles(int goles[][]) {
+        int maximoGoles = 0;
+
+        System.out.println("\n****** Registro con mas goles en cada  jornadas de la  Liga 2022 ******:");
         for (int i = 0; i < EQUIPO.length; i++) {
             for (int j = 0; j < JORNADA; j++) {
-          sumaGoles +=goles[i][j];
-                if ( sumaGoles>golMarcado) {
-                    golMarcado=goles[i][j];
-                    System.out.print(JORNADA);
-                } 
+                if (goles[i][j] > maximoGoles) {
+                    maximoGoles = goles[i][j];
+                }
             }
-            System.out.println("");
-            }
-        return null;
-     
         }
 
-      }
+        for (int i = 0; i < EQUIPO.length; i++) {
+            for (int j = 0; j < JORNADA; j++) {
+                if (goles[i][j] == maximoGoles) {
+                    System.out.print("\n" + "X" + (j + 1) + " : " + EQUIPO[i] + " Goles: " + maximoGoles );
+                }
+               
+            }
+        }
+        
+    }
+}
