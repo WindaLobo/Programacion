@@ -90,7 +90,7 @@ public class Matrices {
     }
 
     public void ordenador(int[][] notas, float mnotas[]) {
-        int aux = 0;
+        int aux;
         float aux2;
         String nome;
         for (int i = 0; i < notas.length; i++) {

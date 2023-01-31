@@ -5,7 +5,7 @@ import javax.swing.JOptionPane;
 public class Futbol {
 
     public static int JORNADA = 36;
-    public final String[] EQUIPO = new String[]{"Celta", "Bilbao", "Barcelona", "Malaga", "R.Madrid", "R.sociedad",
+    public final String[] EQUIPO = new String[]{"Celta", "Bilbao", "Barcelona", "Malaga", "Madrid", "R.sociedad",
         "Atletico ", "Villareal", "Beltis", "Osasuna", "Athletic", "Rayo", "Mallorca", "Almeria", "Girona", "Valencia", "Espanyol", "Getafe", "Valladolid", "Cadiz", "Elche"};
     private final int[][] goles = new int[EQUIPO.length][JORNADA];
 
@@ -44,51 +44,54 @@ public class Futbol {
 
     }
 
-    public void ordenar(int goles[][]) {
-        String Equipo2 = " " ;
-       
-        float maximoGoles;
-        int[][] ordenaColumna = new int[1][36];
-        int[] golesTotal = new int[EQUIPO.length];
+    public void ordenar(int goles[][], String[] EQUIPO) {
+        int sumaGolesTotal;
+        int golesOrdenados;
+        ;
+        int sumaGolesOrdenados;
+        String nombreEQuipo;
 
-        String nome;
+        int sumaGole[] = new int[EQUIPO.length];
+
         for (int i = 0; i < EQUIPO.length; i++) {
+            sumaGolesTotal = 0;
             for (int j = 1; j < JORNADA; j++) {
-                
-                if (i > j) {
-                    Equipo2 = EQUIPO[i];
-                    EQUIPO[i] = EQUIPO[j];
-                    EQUIPO[j] = Equipo2;
-                    for (int m = 1; j < ordenaColumna.length; m++) {
-                        ordenaColumna[0][m] = goles[i][m];
-                        goles[i][m] = goles[j][m];
-                        goles[i][m] = ordenaColumna[0][m];
-
-                    }
-                    
-                    
-                }
-               
+                sumaGolesTotal += goles[i][j];
             }
-            
+            sumaGole[i] = sumaGolesTotal;
+            System.out.println(EQUIPO[i] + " " + sumaGole[i]);
 
         }
+        for (int i = 0; i < EQUIPO.length; i++) {
+            for (int j = i + 1; j < sumaGole.length; j++) {
+                if (sumaGole[i] > sumaGole[j]) {
+                    sumaGolesOrdenados = sumaGole[i];
+                    sumaGole[i] = sumaGole[j];
+                    sumaGole[j] = sumaGolesOrdenados;
+                    nombreEQuipo = EQUIPO[i];
+                    EQUIPO[i] = EQUIPO[j];
+                    EQUIPO[j] = nombreEQuipo;
+
+                    for (int x = 0; x < goles[i].length; x++) {
+                        golesOrdenados = goles[i][x];
+                        goles[i][x] = goles[j][x];
+                        goles[j][x] = golesOrdenados;
+                    }
+                }
+
+            }
+
+        }
+        System.out.println("");
 
     }
 
-    private String ajustarCadena(String cadena, int tamaño) {
-        int tamañoCadena = cadena.length();
-        String espacio = " ";
-        String espacios = espacio.repeat(tamaño - tamañoCadena); // repeated es para repetir las cadenas n veces las veces q  le pases por parametros
+    public void mascacinPorJonada(int goles[][]) {
 
-        return cadena + espacios;
-    }
-
-    /* public int golesJornadas(int goles[][]) {
         int maximoGoles;
         int indice = 0;
 
-        System.out.println("****** Total de goles de la  Liga 2022 ******:");
+        System.out.println("****** Total equipo que marca mas  goles en cada jornada 2022 ******:");
 
         for (int j = 0; j < JORNADA; j++) {
             maximoGoles = 0;
@@ -101,8 +104,17 @@ public class Futbol {
             }
             System.out.print("X" + (j + 1) + " : " + EQUIPO[indice] + "\n");
         }
-        return 0;
-    }*/
+
+    }
+
+    private String ajustarCadena(String cadena, int tamaño) {
+        int tamañoCadena = cadena.length();
+        String espacio = " ";
+        String espacios = espacio.repeat(tamaño - tamañoCadena); // repeated es para repetir las cadenas n veces las veces q  le pases por parametros
+
+        return cadena + espacios;
+    }
+
     public void equipoMasGoles(int goles[][]) {
         int maximoGoles = 0;
 
@@ -129,21 +141,23 @@ public class Futbol {
 
     }
 
-    /* public void ConsultasEquipoJornada(int goles[][]) {
-        int jornadaUsuario = 0;
+    public void ConsultasEquipoJornada(int goles[][]) {
+        int jornadaUsuario;
         int maximoGoles = 0;
         String usuarioNombre;
         usuarioNombre = JOptionPane.showInputDialog("Introduce el equipo");
         jornadaUsuario = Integer.parseInt(JOptionPane.showInputDialog("Introduce la jornada"));
         for (int i = 0; i < EQUIPO.length; i++) {
             for (int j = 0; j < JORNADA; j++) {
-                if (usuarioNombre.equals(EQUIPO.length) && jornadaUsuario == (j+1)) {
-                  
-                    System.out.print("\n" + "X" + (j + 1) + EQUIPO[i] + " Goles: " + goles[i][j]);
+                if (usuarioNombre.equalsIgnoreCase(EQUIPO[i]) && jornadaUsuario == (j + 1)) {
 
+                    System.out.print("\n" + "X" + (j + 1) + " " + EQUIPO[i] + "----> Goles: " + goles[i][j]);
+                    break;
                 }
 
             }
 
-        }*/
+        }
+    }
+
 }
