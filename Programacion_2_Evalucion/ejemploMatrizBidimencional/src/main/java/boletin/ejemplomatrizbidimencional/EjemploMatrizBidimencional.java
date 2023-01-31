@@ -7,7 +7,7 @@ public class EjemploMatrizBidimencional {
         int[][] aux;
         aux = obx.notas();
         obx.mediaAlumno(aux);
-        obx.visualizar(aux);
+  // obx.visualizar(aux, nombre[i], NumeroDeModulo);//Haces
         obx.mediaModulo(aux);
 
     }

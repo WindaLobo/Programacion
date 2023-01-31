@@ -6,42 +6,36 @@ import javax.swing.JOptionPane;
 public class Boletin21_2 {
 
     public void arraysModuloProgramacion() throws Exception {
-        try {
-            int cantidaAlumno = 5;
-            double notas[] = new double[cantidaAlumno];
-            String nombres[] = new String[cantidaAlumno];
 
-            for (int i = 0; i < nombres.length; i++) {
-                nombres[i] = JOptionPane.showInputDialog("Introduce el nombre");
-                notas[i] = Double.parseDouble(JOptionPane.showInputDialog("Introduce la nota"));
+        int cantidaAlumno = 5;
+        double notas[] = new double[cantidaAlumno];
+        String nombres[] = new String[cantidaAlumno];
 
-            }
-
-            System.out.println("Suspensos: " + getNumeroSupendidos(nombres, notas));
-            System.out.println("Aprobados: " + getNumeroAprobados(nombres, notas));
-
-            System.out.println("Nota media de la clase: " + getNotaMediaClase(nombres, notas));
-
-            System.out.println("Nota más alta: " + getNotaAlta(nombres, notas));
-
-            System.out.println("Las notas de los alumnos " + nombres[1] + " es: " + getNota(nombres, notas, nombres[1]));
-
-            System.out.println("Lista de aprobados " + getListaAprobados(nombres, notas));
-
-            String nombreUsuario = JOptionPane.showInputDialog("Introduce el nombre");
-            double notaUsuario = getNota(nombres, notas, nombreUsuario);
-            if (notaUsuario == -1) {
-                System.out.println("El nombre de alumno no existe");
-            } else {
-                System.out.println("La nota " + nombreUsuario + " es : " + notaUsuario);
-            }
-            System.out.println("La notas ordenadas crecientes  son :" + getListaOrdenadas(notas));
-        } catch (Exception ex) {
-
-            System.out.println(ex.getMessage());
+        for (int i = 0; i < nombres.length; i++) {
+            nombres[i] = JOptionPane.showInputDialog("Introduce el nombre");
+            notas[i] = Double.parseDouble(JOptionPane.showInputDialog("Introduce la nota"));
 
         }
-        System.out.println("Fin del programa");
+
+        System.out.println("Suspensos: " + getNumeroSupendidos(nombres, notas));
+        System.out.println("Aprobados: " + getNumeroAprobados(nombres, notas));
+
+        System.out.println("Nota media de la clase: " + getNotaMediaClase(nombres, notas));
+
+        System.out.println("Nota más alta: " + getNotaAlta(nombres, notas));
+
+        System.out.println("Las nota del alumno  " + nombres[1] + " es: " + getNota(nombres, notas, nombres[1]));
+
+        System.out.println("Lista de aprobados " + getListaAprobados(nombres, notas));
+
+        String nombreUsuario = JOptionPane.showInputDialog("Introduce el nombre");
+        double notaUsuario = getNota(nombres, notas, nombreUsuario);
+        if (notaUsuario == -1) {
+            System.out.println("El nombre de alumno no existe");
+        } else {
+            System.out.println("La nota " + nombreUsuario + " es : " + notaUsuario);
+        }
+        System.out.println("La notas ordenadas crecientes  son :" + getListaOrdenadas(notas));
     }
 
     private int getNumeroAprobados(String[] nombres, double[] notas) {
@@ -125,7 +119,7 @@ public class Boletin21_2 {
 
     private String getListaOrdenadas(double[] notas) {
         String cadena = "";
-         Arrays.sort(notas);
+        Arrays.sort(notas);
         for (int i = 0; i < notas.length; i++) {
             cadena += "\n" + notas[i];
         }
