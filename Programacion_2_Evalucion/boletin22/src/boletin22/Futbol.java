@@ -20,7 +20,7 @@ public class Futbol {
         return goles;
     }
 
-    public void golesJornadas(int goles[][]) {
+    public void golesJornadas(int goles[][]) throws Exception {
         String titulo = "Equipo    ";
         for (int j = 0; j < JORNADA; j++) {
             titulo += " X" + (j + 1);
@@ -39,15 +39,18 @@ public class Futbol {
                 }
 
             }
+
             System.out.println("");
         }
+
+        throw new Exception("Tamaño de la cadena no se ajusta.");
 
     }
 
     public void ordenar(int goles[][], String[] EQUIPO) {
         int sumaGolesTotal;
         int golesOrdenados;
-        ;
+
         int sumaGolesOrdenados;
         String nombreEQuipo;
 

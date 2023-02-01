@@ -14,10 +14,11 @@ public class Main {
         int opcion = 0;
 
         do {
-           // try {
+            try {
 
                 opcion = Integer.parseInt(JOptionPane.showInputDialog("***** MENU *****\n1--> Crear Marcadador \n2 ---> "
-                        + " Goles por Jornadas\n3 ---> ordenar \n4 ----> Mascacion por jornada \n5---> EquipoMasGoles \n6---> Consultas de Equipo y  Jornada"));
+                        + " Goles por Jornadas\n3 ---> ordenar \n4 ----> Mascacion por jornada \n5---> "
+                        + "EquipoMasGoles \n6---> Consultas de Equipo y  Jornada\n7 ---> Salir"));
 
                 switch (opcion) {
                     case 1:
@@ -42,14 +43,15 @@ public class Main {
                     case 6:
                         futbol.ConsultasEquipoJornada(goles);
                         break;
+                    default:
+                        break;
 
                 }
-               // }catch (Exception ex) {
-           // System.out.println(ex.getMessage());
-        //}
-        
-        } while (opcion <= 6);
-    }
-     
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
+            }
 
+        } while (opcion<= 6);
     }
+
+}
