@@ -1,25 +1,48 @@
 package boletin22;
 
-public class MarcadorEquipo {
+import java.util.Arrays;
 
-    String nombre;
-    int totalGoles;
+public class MarcadorEquipo implements Comparable<MarcadorEquipo> {
 
-    public MarcadorEquipo(String nombre, int totalGoles) {
+    private String nombre;
+
+    private int[] goles;
+    private String golesTotales = "";
+
+    public MarcadorEquipo(String nombre, int[] goles) {
         this.nombre = nombre;
-        this.totalGoles = 0;
+        this.goles = goles;
+        this.golesTotales = Integer.toString(getTotalGoles());
+    }
+
+    private int getTotalGoles() {
+        int total = 0;
+        for (int i = 0; i < goles.length; i++) {
+            total += goles[i];
+        }
+
+        return total;
+    }
+
+    @Override
+    public int compareTo(MarcadorEquipo o) {
+
+        return this.golesTotales.compareTo(o.golesTotales);
+    }
+
+    @Override
+    public String toString() {
+
+        return " \n " + nombre + Arrays.toString(goles);
+
     }
 
     public String getNombre() {
         return nombre;
     }
 
-    public int getTotalGoles() {
-
-        return totalGoles;
+    public int[] getGoles() {
+        return goles;
     }
 
-public void marcarGol() {
-    totalGoles++;
-  }
 }

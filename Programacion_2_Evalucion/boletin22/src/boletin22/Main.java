@@ -7,9 +7,8 @@ public class Main {
     public static void main(String[] args) {
         Futbol futbol = new Futbol();
         int[][] goles;
-        int[][] golesOrdenados;
+
         goles = futbol.crearMarcador();
-        golesOrdenados = futbol.crearMarcador();
 
         int opcion = 0;
 
@@ -26,32 +25,36 @@ public class Main {
                         goles = futbol.crearMarcador();
                         break;
                     case 2:
-                        futbol.golesJornadas(goles);
+                        futbol.golesDeCadaJornadas(goles);
                         break;
                     case 3:
-                        futbol.ordenar(golesOrdenados, futbol.EQUIPO);
+                        //futbol.ordenar(goles, futbol.EQUIPO);
+                        futbol.pintarOrdenDeMenorGoles(futbol.ordenarMenorGoles());
                         break;
 
                     case 4:
-                        futbol.mascacinPorJonada(goles);
+
+                        futbol.mascacionGolesMaximoPorJonada(goles);
                         break;
 
                     case 5:
-                        futbol.equipoMasGoles(goles);
+                        futbol.equipoConMasGolesPorJornada(goles);
                         break;
 
                     case 6:
-                        futbol.ConsultasEquipoJornada(goles);
+
+                        futbol.ConsultasDeEquipoYJornada(goles);
                         break;
                     default:
+
                         break;
 
                 }
             } catch (Exception ex) {
-                System.out.println(ex.getMessage());
+                System.out.println("Error al intoducir ");
             }
 
-        } while (opcion<= 6);
+        } while (opcion < 7);
     }
 
 }

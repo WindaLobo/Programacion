@@ -1,11 +1,13 @@
 package boletin22;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import javax.swing.JOptionPane;
 
 public class Futbol {
 
     public static int JORNADA = 36;
-    public final String[] EQUIPO = new String[]{"Celta", "Bilbao", "Barcelona", "Malaga", "Madrid", "R.sociedad",
+    public static String[] EQUIPO = new String[]{"Celta", "Bilbao", "Barcelona", "Malaga", "Madrid", "R.sociedad",
         "Atletico ", "Villareal", "Beltis", "Osasuna", "Athletic", "Rayo", "Mallorca", "Almeria", "Girona", "Valencia", "Espanyol", "Getafe", "Valladolid", "Cadiz", "Elche"};
     private final int[][] goles = new int[EQUIPO.length][JORNADA];
 
@@ -18,9 +20,10 @@ public class Futbol {
             }
         }
         return goles;
+
     }
 
-    public void golesJornadas(int goles[][]) throws Exception {
+    public void golesDeCadaJornadas(int goles[][]) {
         String titulo = "Equipo    ";
         for (int j = 0; j < JORNADA; j++) {
             titulo += " X" + (j + 1);
@@ -35,15 +38,52 @@ public class Futbol {
                     System.out.print(ajustarCadena(gol, 3) + "|");
                 } else {
                     System.out.print(ajustarCadena(gol, 2) + "|");
-
                 }
+            }
+            System.out.println(" ");
+        }
+    }
+    public ArrayList ordenarMenorGoles() {
+        ArrayList<MarcadorEquipo> x = new ArrayList<>();
+
+        for (int i = 0; i < EQUIPO.length; i++) {
+            for (int j = 0; j < JORNADA; j++) {
 
             }
-
-            System.out.println("");
+            MarcadorEquipo obx = new MarcadorEquipo(EQUIPO[i], goles[i]);
+            x.add(obx);
+            Collections.sort(x);
         }
+        return x;
+    }
 
-        throw new Exception("Tamaño de la cadena no se ajusta.");
+    public void pintarOrdenDeMenorGoles(ArrayList<MarcadorEquipo> goles) {
+        System.out.println(" ");
+
+        String cadena;
+
+        String titulo = "Equipo    ";
+        for (int j = 0; j < JORNADA; j++) {
+            titulo += " X" + (j + 1);
+        }
+        System.out.println(titulo);
+
+        for (MarcadorEquipo item : goles) {
+            int[] maracdoGoles = item.getGoles();
+            cadena = ajustarCadena(item.getNombre(), 12);
+
+            for (int x = 0; x < maracdoGoles.length; x++) {
+                if (x > 9) {
+                    cadena += ajustarCadena(Integer.toString(maracdoGoles[x]), 3) + "|";
+                } else {
+                    cadena += ajustarCadena(Integer.toString(maracdoGoles[x]), 2) + "|";
+
+                }
+            }
+
+            System.out.println(cadena);
+
+        }
 
     }
 
@@ -89,7 +129,7 @@ public class Futbol {
 
     }
 
-    public void mascacinPorJonada(int goles[][]) {
+    public void mascacionGolesMaximoPorJonada(int goles[][]) {
 
         int maximoGoles;
         int indice = 0;
@@ -118,7 +158,7 @@ public class Futbol {
         return cadena + espacios;
     }
 
-    public void equipoMasGoles(int goles[][]) {
+    public void equipoConMasGolesPorJornada(int goles[][]) {
         int maximoGoles = 0;
 
         System.out.println("\n****** Registro con mas goles en cada  jornadas de la  Liga 2022 ******:");
@@ -126,40 +166,31 @@ public class Futbol {
             for (int j = 0; j < JORNADA; j++) {
                 if (goles[i][j] > maximoGoles) {
                     maximoGoles = goles[i][j];
-
                 }
             }
-
         }
-
         for (int i = 0; i < EQUIPO.length; i++) {
             for (int j = 0; j < JORNADA; j++) {
                 if (goles[i][j] == maximoGoles) {
                     System.out.print("\n" + "X" + (j + 1) + " : " + EQUIPO[i] + " Goles: " + maximoGoles);
                 }
-
             }
         }
         System.out.println("");
-
     }
-
-    public void ConsultasEquipoJornada(int goles[][]) {
-        int jornadaUsuario;
-        int maximoGoles = 0;
-        String usuarioNombre;
-        usuarioNombre = JOptionPane.showInputDialog("Introduce el equipo");
-        jornadaUsuario = Integer.parseInt(JOptionPane.showInputDialog("Introduce la jornada"));
+    public void ConsultasDeEquipoYJornada(int goles[][]) {
+        int jornadaIntroducido;
+        String equipoIntroducido;
+        equipoIntroducido = JOptionPane.showInputDialog("Introduce el equipo");
+        jornadaIntroducido = Integer.parseInt(JOptionPane.showInputDialog("Introduce la jornada"));
         for (int i = 0; i < EQUIPO.length; i++) {
             for (int j = 0; j < JORNADA; j++) {
-                if (usuarioNombre.equalsIgnoreCase(EQUIPO[i]) && jornadaUsuario == (j + 1)) {
+                if (equipoIntroducido.equalsIgnoreCase(EQUIPO[i]) && jornadaIntroducido == (j + 1)) {
 
-                    System.out.print("\n" + "X" + (j + 1) + " " + EQUIPO[i] + "----> Goles: " + goles[i][j]);
+                    System.out.print("\n" + "X" + (j + 1) + " " + EQUIPO[i] + "----> Goles: " + goles[i][j] + " ");
                     break;
                 }
-
             }
-
         }
     }
 
