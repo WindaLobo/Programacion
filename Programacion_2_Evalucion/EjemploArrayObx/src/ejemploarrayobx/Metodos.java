@@ -6,88 +6,92 @@ import java.util.Iterator;
 
 public class Metodos {
 
-    public ArrayList<Xogador> agregar(ArrayList<Xogador> listaJuagdores) {
-        Xogador xo = new Xogador(PedirDatos.pedirString("nombre :"), PedirDatos.pedirInt("numero"));
-        listaJuagdores.add(xo);
-
-        return listaJuagdores;
-
+    public void agregar(ArrayList<Xogador> xogadores) {
+        Xogador xogador = new Xogador(PedirDatos.pedirString("nombre :"), PedirDatos.pedirInt("numero"));
+        xogadores.add(xogador);
     }
 
-    public void mostrar1(ArrayList<Xogador> agregar) {
-        System.out.println(agregar);
+    public void mostrar1(ArrayList<Xogador> xogadores) {
+        System.out.println(xogadores);
     }
 
-    public void mostar2(ArrayList<Xogador> agregar) {
-        for (Xogador elemento : agregar) {
-            System.out.println(elemento);
+    public void mostar2(ArrayList<Xogador> xogadores) {
+        for (Xogador xogador : xogadores) {
+            System.out.println(xogador);
         }
     }
 
-    public void mostrar3(ArrayList<Xogador> agregar) {
-        //For
-        for (int i = 0; i < agregar.size(); i++) {
-            System.out.println(agregar.get(i));
+    public void mostrar3(ArrayList<Xogador> xogadores) {
+        for (int i = 0; i < xogadores.size(); i++) {
+            System.out.println(xogadores.get(i));
         }
     }
 
-    public void mostrar4(ArrayList<Xogador> agregar) {
-        //con iterato
+    public void mostrar4(ArrayList<Xogador> xogadores) {
 
-        Iterator it = agregar.iterator();
+        Iterator it = xogadores.iterator();
         while (it.hasNext()) {
-            // Xogador aux=(Xogador)it.next();
-
-            // System.out.println(aux);
             System.out.println(it.next());
         }
     }
 
-    public int  buscarJugador(ArrayList<Xogador> agregar) {
+    public int buscarXogador(ArrayList<Xogador> xogadores) {
         int numeroBuscado = PedirDatos.pedirInt("Que numero buscas : ");
         int atopado = 0;// no se atopo
-        for (Xogador elemento : agregar) {
-            if (numeroBuscado == elemento.getDorsal()) {
-                System.out.println(" el jugador se llama : " + elemento.getNombre());
+        for (Xogador xogador : xogadores) {
+            if (numeroBuscado == xogador.getDorsal()) {
+                System.out.println(" el jugador se llama : " + xogador.getNombre());
                 atopado = 1;
+                break;
             }
-
         }
         if (atopado == 0) {
             System.out.println("El jugador no esta en el equipo");
-
         }
         return atopado;
-
     }
 
-    public void borrarJugador(ArrayList<Xogador> agregar) {
+    public void borrarXogador(ArrayList<Xogador> xogadores) {
         String nombreBuscado = PedirDatos.pedirString("Que jugador quieres eliminar");
-        
-       Iterator nombre = agregar.iterator();
+        Iterator nombre = xogadores.iterator();
         while (nombre.hasNext()) {
             if (nombre.next().equals(nombreBuscado)) {
                 nombre.remove();
             }
-            
         }
-       
     }
-     public void  borarJugador2(ArrayList<Xogador> agregar) {
-         int buscar = buscarJugador(agregar);
-         if(buscar==1){
-        String nombreBuscado = PedirDatos.pedirString("Que jugador quieres eliminar");
-        System.out.println("Borrado");
-       Iterator nombre = agregar.iterator();
-        while (nombre.hasNext()) {
-            if (nombre.next().equals(nombreBuscado)) {
-                nombre.remove();
-                
+
+    public void borrarXogador2(ArrayList<Xogador> xogadores) {
+        int buscar = buscarXogador(xogadores);
+        if (buscar == 1) {
+            String nombreBuscado = PedirDatos.pedirString("Que jugador quieres eliminar");
+            System.out.println("Borrado");
+            Iterator nombre = xogadores.iterator();
+            while (nombre.hasNext()) {
+                Xogador xogador = (Xogador) nombre.next();
+                if (xogador.getNombre().equals(nombreBuscado)) {
+                    nombre.remove();
+                }
             }
         }
-         }
+    }
+
+    public void mostrarTodos(ArrayList<Xogador> xogadores) {
+        for (Xogador xogador : xogadores) {
+            System.out.println(xogador);
+        }
+    }
+
+    public void eliminar(ArrayList<Xogador> xogadores) {
+         int dorsal = PedirDatos.pedirInt("Que numero buscas : ");
          
-        
-        
-}
+         for(Xogador xogador : xogadores)
+         {
+             if(xogador.getDorsal() == dorsal){
+                xogadores.remove(xogador);
+                break;
+             }
+         }         
+    }
+
 }
