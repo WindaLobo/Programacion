@@ -44,5 +44,6 @@ public class MarcadorEquipo implements Comparable<MarcadorEquipo> {
     public int[] getGoles() {
         return goles;
     }
+    
 
 }

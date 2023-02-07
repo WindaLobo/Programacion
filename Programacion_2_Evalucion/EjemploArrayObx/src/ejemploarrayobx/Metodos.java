@@ -2,6 +2,7 @@ package ejemploarrayobx;
 
 import com.windar.datos.PedirDatos;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 
 public class Metodos {
@@ -83,15 +84,24 @@ public class Metodos {
     }
 
     public void eliminar(ArrayList<Xogador> xogadores) {
-         int dorsal = PedirDatos.pedirInt("Que numero buscas : ");
-         
-         for(Xogador xogador : xogadores)
-         {
-             if(xogador.getDorsal() == dorsal){
+        int dorsal = PedirDatos.pedirInt("Que numero buscas : ");
+
+        for (Xogador xogador : xogadores) {
+            if (xogador.getDorsal() == dorsal) {
                 xogadores.remove(xogador);
                 break;
-             }
-         }         
+            }
+        }
     }
 
+ 
+     public void ordenar(ArrayList<Xogador> xogadore){
+         Collections.sort(xogadore);
+       
+                 
+
+
+     }
+
 }
+

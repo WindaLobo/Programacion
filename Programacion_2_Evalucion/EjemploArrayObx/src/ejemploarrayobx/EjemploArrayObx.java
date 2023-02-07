@@ -13,7 +13,7 @@ public class EjemploArrayObx {
         int op;
         do {
             op = PedirDatos.pedirInt("1 Añadir \n2 mostrar \n3 ver con Foreach \n4 con for nomral \n5 ver con iteraro \n6 buscar"
-                    + " \n7 Borrar \n8 Borra otra opcion \n9 Mostrar el elemento eliminado \n10 Eliminar modo Dios \n11 Salir");
+                    + " \n7 Borrar \n8 Borra otra opcion \n9 Mostrar el elemento eliminado \n10 Ordenar \n11 Salir");
             switch (op) {
                 case 1:
                     metodos.agregar(xogadores);
@@ -42,7 +42,7 @@ public class EjemploArrayObx {
                 case 9:
                     metodos.mostrarTodos(xogadores);
                 case 10:
-                    metodos.eliminar(xogadores);
+                    metodos.ordenar(xogadores);
                     break;
                 default:
                     System.out.println("Salir");

@@ -1,8 +1,7 @@
-
 package ejemploarrayobx;
 
+public class Xogador implements Comparable<Xogador> {
 
-public class Xogador {
     private String nombre;
     private int dorsal;
 
@@ -31,11 +30,37 @@ public class Xogador {
     }
 
     @Override
+    public int compareTo(Xogador xogador) {
+        /* return (this.nombre.compareTo(xogador.nombre));*/
+
+        Xogador xogadores = (Xogador) xogador;
+        if (this.nombre.compareToIgnoreCase(xogadores.nombre) > 0) {
+            return 1;
+        } else if (this.nombre.compareToIgnoreCase(xogadores.nombre) < 0) {
+            return -1;
+
+        } else {
+            return 0;
+        }
+    }
+
+    /*@Override
+    public int compareTo(Xogador xogador) {
+        Xogador xogadores = (Xogador) xogador;
+        if (this.dorsal > xogadores.dorsal) {
+            return 1;
+        } else if (this.dorsal < xogadores.dorsal) {
+            return -1;
+
+        } else {
+            return 0;
+        }
+
+    }*/
+    @Override
     public String toString() {
         return " El nombre del jugador  : " + nombre + "\n y el numero de camiseta  es : " + dorsal;
+
     }
-    
-    
-    
-    
+
 }
