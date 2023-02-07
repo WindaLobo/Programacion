@@ -1,4 +1,3 @@
-
 package boletin24;
 
 import com.windar.metodos.Metodos;
@@ -6,35 +5,50 @@ import com.windar.metodos.Libro;
 import com.windar.datos.PedirDatos;
 import java.util.ArrayList;
 
-
 public class boletin24 {
 
-    
-    public static void main(String[] args) {
-                Metodos libros = new Metodos();
+    public static void main(String[] args) throws Exception {
+        Metodos biblioteca = new Metodos();
 
-        ArrayList<Libro> libro = new ArrayList<>();
+        ArrayList<Libro> libros = new ArrayList<>();
 
-        int Opcion;
+        int Opcion = 0;
+
         do {
-            Opcion = PedirDatos.pedirInt("1- Añadir \n2- Mostar \n3- Eliminar \n4- Ordenar  \n5- Salir");
-            switch (Opcion) {
-                case 1: 
-                    libros.libro(libro);
-                break;
-                 case 2: libros.mostrar1(libro);
-                break;
-                case 3: libros.eliminar(libro);
-                break;
-                case 4: libros.ordenar(libro);
-                break;
-                
-                default:
-                    System.out.println("Salir");
+            try {
+                Opcion = PedirDatos.pedirInt("1- Añadir \n2- Mostar \n3- Vender "
+                        + "\n4- Ordenar  \n5- Dar de baja \n6- Consulta \n7- Eliminar \n8- Salir");
+
+                switch (Opcion) {
+                    case 1:
+                        biblioteca.añadir(libros);
+                        break;
+                    case 2:
+                        biblioteca.mostrar(libros);
+                        break;
+                    case 3:
+                        biblioteca.vender(libros);
+                        break;
+                    case 4:
+                        biblioteca.ordenar(libros);
+                        break;
+                    case 5:
+                        biblioteca.darDeBaja(libros);
+                        break;
+                    case 6:
+                        biblioteca.consultar(libros);
+                        break;
+                    case 7:
+                        biblioteca.eliminar(libros);
+                        break;
+
+                    default:
+                        System.out.println(" ********* Gracias por tu compra ******** ");
+                }
+            } catch (Exception ex) {
+                System.out.println("Error al intoducir ");
+
             }
-
-        } while (Opcion < 5);
+        } while (Opcion < 8);
     }
-    }
-    
-
+}
