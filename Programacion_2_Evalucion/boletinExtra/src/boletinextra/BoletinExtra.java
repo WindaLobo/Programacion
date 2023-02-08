@@ -1,25 +1,56 @@
 package boletinextra;
 
 import com.windar.datos.PedirDatos;
-import java.util.ArrayList;
+
+
 
 public class BoletinExtra {
 
     public static void main(String[] args) {
-        Cola impresora = new Cola();
-        ArrayList<Impresora> impresoras = new ArrayList<>();
 
-        int Opcion = 0;
+        int opcion = 0;
+      
+        Impresora impresoras = new Impresora();
+          String datos="" ;
+         
 
         do {
-            Opcion = PedirDatos.pedirInt("1- Verificar \n2- Cantidad \n3- Imprimir ");
+            try {
 
-            switch (Opcion) {
-                case 1:
+                opcion = PedirDatos.pedirInt("***** MENU *****\n1--> Introducir \n2 ---> "
+                        + " Imprimir \n3 ---> Mostrar \n4 ----> Ordenar \n5---> "
+                        + "Salir ");
+
+                switch (opcion) {
+                    case 1: 
+                       
+                       impresoras.encolar(datos);
+                    
                     break;
+
+                    case 2:
+                        impresoras.desenColar();
+                        break;
+                    case 3:
+                        impresoras.mostrar(impresoras.Cola);
+                        break;
+
+                    case 4:
+
+                        impresoras.ordenar(impresoras.Cola);
+                        break;
+
+                    default:
+
+                        System.out.println("Salir");
+
+                        break;
+
+                }
+            } catch (Exception ex) {
+                System.out.println("Error impresora vacia ");
             }
 
-        } while (Opcion < 0);
-
+        } while (opcion < 5);
     }
 }

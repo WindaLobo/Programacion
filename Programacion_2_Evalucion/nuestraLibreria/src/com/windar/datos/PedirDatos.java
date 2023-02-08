@@ -1,7 +1,7 @@
 
 package com.windar.datos;
 
-import java.util.Arrays;
+
 import javax.swing.JOptionPane;
 
 public class PedirDatos {
@@ -16,5 +16,9 @@ public class PedirDatos {
         return Float.parseFloat(JOptionPane.showInputDialog(mensaje));
     }
 
+   
+        
+    }
+
     
-}
+

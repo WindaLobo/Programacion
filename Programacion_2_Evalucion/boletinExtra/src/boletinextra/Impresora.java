@@ -1,20 +1,39 @@
 package boletinextra;
 
-import java.util.ArrayList;
-import java.util.TreeSet;
+
+import com.windar.datos.PedirDatos;
+import java.util.Collections;
+import java.util.LinkedList;
 
 public class Impresora {
+    LinkedList Cola = new LinkedList();
+   
+    
 
-    public void añadir(ArrayList<Impresora> impresoras) {
-         TreeSet Cola impresora = new TreeSet<Cola>();
-        impresoras.add(15);
-        impresoras.add(63);
-        impresoras.add(34);
-        impresoras.add(45);
+   public void  encolar(String datos){
+        datos = PedirDatos.pedirString("introduce lo que quieres imprimir");
+       Cola.addFirst(datos);
+      
+   
+   }
 
-        Iterator<Integer> iterator = tree.iterator();
-        System.out.print("Tree set data: ");
-        while (iterator.hasNext()) {
-            System.out.print(iterator.next() + " ");
-        }
+    public String desenColar( ) {
+       return (String) Cola.removeLast();
+        
+        
     }
+    
+
+    public void mostrar( LinkedList Cola) {
+        
+        System.out.println(Cola);
+       
+        
+    }
+
+    public void ordenar( LinkedList Cola  ){
+        Collections.sort(Cola);
+    }
+        
+
+}
