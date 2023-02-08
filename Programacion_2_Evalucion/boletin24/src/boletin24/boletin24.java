@@ -5,6 +5,7 @@ import com.windar.metodos.Libro;
 import com.windar.datos.PedirDatos;
 import java.util.ArrayList;
 
+
 public class boletin24 {
 
     public static void main(String[] args) throws Exception {
@@ -46,7 +47,7 @@ public class boletin24 {
                         System.out.println(" ********* Gracias por tu compra ******** ");
                 }
             } catch (Exception ex) {
-                System.out.println("Error al intoducir ");
+                System.out.println(ex.getMessage());
 
             }
         } while (Opcion < 8);

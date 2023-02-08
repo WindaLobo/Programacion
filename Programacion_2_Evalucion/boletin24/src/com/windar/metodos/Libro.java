@@ -19,6 +19,10 @@ public class Libro implements Comparable<Libro> {
     public Libro() {
     }
 
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
     public String getTitulo() {
         return titulo;
     }
