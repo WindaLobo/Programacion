@@ -13,7 +13,6 @@ public class ClaseXenerica <T>{
         return dato;
     }
     
-
     @Override
     public String toString() {
         return "ClaseXenerica{" + "dato=" + dato + '}';
