@@ -26,6 +26,7 @@ public class Aplicacion {
             int numero = PedirDatos.pedirInt("introduce un numero");
             objectoLista.buscar(numero, lista);
         }
+        
         int usuario = PedirDatos.pedirInt("Quieres eliminar? \n1---> Si \n2---> Salir");
         do {
             switch (usuario) {

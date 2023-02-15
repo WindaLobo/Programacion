@@ -28,7 +28,7 @@ public class ColeccionGenerico<T> {
     public void buscar(T elemento, ArrayList<T> lista) {
 
         if (lista.indexOf(elemento) >= 0) {
-            System.out.println("El elemento " + elemento + " está en la lista");
+            System.out.println("El elemento " + elemento + " está en la lista con la posicion : " + (lista.indexOf(elemento)));
         } else {
             System.out.println("El elemento " + elemento + " NO está en la lista");
         }
