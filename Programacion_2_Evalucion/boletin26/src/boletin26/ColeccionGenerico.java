@@ -1,6 +1,5 @@
 package boletin26;
 
-import com.windar.datos.PedirDatos;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -25,12 +24,12 @@ public class ColeccionGenerico<T> {
         System.out.println("Maxima es  : " + Collections.max(lista, null));
     }
 
-    public void buscar(T elemento, ArrayList<T> lista) {
+    public void buscar(T elemento, ArrayList<T> lista) throws Exception {
 
         if (lista.indexOf(elemento) >= 0) {
             System.out.println("El elemento " + elemento + " está en la lista con la posicion : " + (lista.indexOf(elemento)));
         } else {
-            System.out.println("El elemento " + elemento + " NO está en la lista");
+            throw new Exception("El elemento " + elemento + " NO está en la lista");
         }
     }
 
@@ -42,12 +41,12 @@ public class ColeccionGenerico<T> {
 
     }
 
-    public void eliminar(ArrayList<T> lista, T elemento) {
-        if (elemento == elemento) {
+    public void eliminar(ArrayList<T> lista, T elemento) throws Exception {
+        if (lista.indexOf(elemento)>=0) {
             lista.remove(elemento);
-           
+
         } else {
-            System.out.println("No se encontro");
+            throw new Exception(" NO está en la lista");
         }
 
     }

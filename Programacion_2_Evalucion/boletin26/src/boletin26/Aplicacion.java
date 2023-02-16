@@ -9,39 +9,55 @@ public class Aplicacion {
 
         ColeccionGenerico<Integer> objectoLista = new ColeccionGenerico<>();
         ArrayList<Integer> lista = new ArrayList();
+        int usuario = 0;
 
-        int canidadNumeros = PedirDatos.pedirInt(" Cuantos numeros quieres introduir ");
-        for (int i = 0; i < canidadNumeros; i++) {
-            int numero = PedirDatos.pedirInt("introduce un numero");
-            objectoLista.agregar(numero, lista);
-        }
-
-        objectoLista.mostrar(lista);
-        objectoLista.minimaLista(lista);
-        objectoLista.maximoLista(lista);
-        //objectoLista.ordenar(lista);
-
-        int canidadNumerosBuscador = PedirDatos.pedirInt(" Cuantos numeros quieres introduir ");
-        for (int i = 0; i < canidadNumerosBuscador; i++) {
-            int numero = PedirDatos.pedirInt("introduce un numero");
-            objectoLista.buscar(numero, lista);
-        }
-        
-        int usuario = PedirDatos.pedirInt("Quieres eliminar? \n1---> Si \n2---> Salir");
         do {
-            switch (usuario) {
-                case 1:
 
-                    int numero = PedirDatos.pedirInt("Introduce un numero  : ");
-                    objectoLista.eliminar(lista, numero);
-                    objectoLista.mostrar(lista);
-                    break;
+            try {
+                usuario = PedirDatos.pedirInt(" \n1--> Introducir. \n2--> Mostrar. \n3--> Mostrar la Minina. "
+                        + "\n4--> Mostrar la maxima  \n5--> Ordenar \n6--> Buscar \n7---> Eliminar \n8--> Salir");
+                switch (usuario) {
+                    case 1:
+                        int canidadNumeros = PedirDatos.pedirInt(" Cuantos numeros quieres introduir ");
+                        for (int i = 0; i < canidadNumeros; i++) {
+                            int numero = PedirDatos.pedirInt("introduce un numero");
+                            objectoLista.agregar(numero, lista);
+                        }
+                        break;
+                    case 2:
 
-                default:
-                    System.out.println("Salir");
+                        objectoLista.mostrar(lista);
+                        break;
+                    case 3:
+                        objectoLista.minimaLista(lista);
+                        break;
+                    case 4:
+                        objectoLista.maximoLista(lista);
+                        break;
+                    case 5:
+                        objectoLista.ordenar(lista);
+                        break;
+                    case 6:
 
+                        int canidadNumerosBuscador = PedirDatos.pedirInt(" Cuantos numeros quieres introduir ");
+                        for (int i = 0; i < canidadNumerosBuscador; i++) {
+                            int numero = PedirDatos.pedirInt("introduce un numero");
+                            objectoLista.buscar(numero, lista);
+                        }
+                        break;
+                    case 7:
+                        int numero = PedirDatos.pedirInt("Introduce el elemento que deseas eliminar: ");
+                        objectoLista.eliminar(lista, numero);
+                        objectoLista.mostrar(lista);
+                        break;
+
+                    default:
+                       
+                        break;
+                }
+            } catch (Exception ex) {
+                System.out.println( ex.getMessage());
             }
-
-        } while (usuario > 1);
+        } while (usuario < 8);
     }
 }
