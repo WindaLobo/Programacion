@@ -8,28 +8,33 @@ public class EjemploFicheros {
     public static void main(String[] args) {
         File dato = new File("numeros.txt");
         LecturaFichero obx = new LecturaFichero();
-        obx.leerPalabra(dato);
-              
+
+        System.out.println("leerPalabra - numeros.txt");
+        obx.leerPalabra(dato,",");
+      
+        System.out.println("leerlinas - numeros.txt");
+        obx.leerlinas(dato);
+
         //ArrayList
-        File n = new File("alumno.txt");
-        obx.leerlinas(n);
-        
-        
+        File n = new File("numeroUno.txt");
+        System.out.println("lerNumero - numeroUno.txt");
+        obx.lerNumero(n);
+
         //arrayList teniendo fichero con comas
-        File x= new File("numeros3.txt");
-      
-       
-       // obx.lerNumeroDelimitadores(n);
-      
+        File x = new File("numeros3.txt");
+        System.out.println("lerNumeroDelimitadores - numeros3.txt");
+        obx.lerNumeroDelimitadores(x);
+
+        File al = new File("alumno.txt");
+
+        System.out.println("lerObxecto - alumno.txt");
+        obx.lerObxecto(al);
         
-        //File al = new File("alumnos.txt");
-        //LerFicheiros obx = new LerFicheiros();
         
-       // obx.lerObxecto(al);
- 
-    
-}
+        File M = new File("C:\\Users\\Windar\\Documents\\numeros.txt");
+     System.out.println("leerPalabra - numeros.txt");
+        obx.leerPalabra(M, " ");
 
     }
 
-
+}
