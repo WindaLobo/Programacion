@@ -1,0 +1,3 @@
+Pablo Escobar,Juan Alvarez,30,15
+Juan Escobar,Pedro Alvarez,15.55,10
+ Maria,Sol,10.5,10 Maria,Sol,10.5,10

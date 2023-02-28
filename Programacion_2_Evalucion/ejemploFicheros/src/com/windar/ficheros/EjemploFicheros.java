@@ -10,8 +10,8 @@ public class EjemploFicheros {
         LecturaFichero obx = new LecturaFichero();
 
         System.out.println("leerPalabra - numeros.txt");
-        obx.leerPalabra(dato,",");
-      
+        obx.leerPalabra(dato, ",");
+
         System.out.println("leerlinas - numeros.txt");
         obx.leerlinas(dato);
 
@@ -29,10 +29,9 @@ public class EjemploFicheros {
 
         System.out.println("lerObxecto - alumno.txt");
         obx.lerObxecto(al);
-        
-        
+
         File M = new File("C:\\Users\\Windar\\Documents\\numeros.txt");
-     System.out.println("leerPalabra - numeros.txt");
+        System.out.println("leerPalabra - numeros.txt");
         obx.leerPalabra(M, " ");
 
     }

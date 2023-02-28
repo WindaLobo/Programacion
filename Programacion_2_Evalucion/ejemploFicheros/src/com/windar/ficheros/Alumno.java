@@ -1,22 +1,18 @@
-
 package com.windar.ficheros;
 
-/**
- *
- * @author dam1
- */
-public class Alumno{
-   
+public class Alumno {
+
     private String nome;
     private int nota;
-    
-    public Alumno(String nome, int nota){
+
+    public Alumno(String nome, int nota) {
         this.nome = nome;
         this.nota = nota;
     }
-    
-    public Alumno(){}
-    
+
+    public Alumno() {
+    }
+
     public String getNome() {
         return nome;
     }
@@ -37,7 +33,5 @@ public class Alumno{
     public String toString() {
         return nome + ", " + nota;
     }
-    
-    
+
 }
-    
