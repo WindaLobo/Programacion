@@ -1,6 +1,6 @@
 package boletin27;
 
-public class Libro implements Comparable<Libro>{
+public class Libro {
 
     private String nombre;
     private String autor;
@@ -40,7 +40,7 @@ public class Libro implements Comparable<Libro>{
     public void setUnidades(int unidades) {
         this.unidades = unidades;
     }
-    @Override
+    /*@Override
     public int compareTo(Libro libro) {
 
         Libro libro1 = (Libro) libro;
@@ -52,7 +52,7 @@ public class Libro implements Comparable<Libro>{
         } else {
             return 0;
         }
-    }
+    }*/
 
     
     @Override

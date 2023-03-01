@@ -1,12 +1,13 @@
 package com.windar.ficheros;
 
 import ejemploficheros.LecturaFichero;
+import escritura.EscribirFichero;
 import java.io.File;
 
 public class EjemploFicheros {
 
     public static void main(String[] args) {
-        File dato = new File("numeros.txt");
+        /* File dato = new File("numeros.txt");
         LecturaFichero obx = new LecturaFichero();
 
         System.out.println("leerPalabra - numeros.txt");
@@ -32,7 +33,14 @@ public class EjemploFicheros {
 
         File M = new File("C:\\Users\\Windar\\Documents\\numeros.txt");
         System.out.println("leerPalabra - numeros.txt");
-        obx.leerPalabra(M, " ");
+        obx.leerPalabra(M, " ");*/
+
+        EscribirFichero m = new EscribirFichero();
+        File f = new File("dia");
+        m.escribirEnElFichero(f);
+        m.añadirUnregistro(f);
+        LecturaFichero obx = new LecturaFichero();
+        obx.leerPalabra(f, "\n");
 
     }
 

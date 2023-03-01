@@ -1,5 +1,6 @@
 package boletin27;
 
+import com.windar.datos.PedirDatos;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -30,19 +31,30 @@ public class Mantenimeinto {
     public static void añadirLibro(Libro libro) throws IOException {
         File archivo = new File("Libro.txt");// representa el archivo File es un objecto
         FileWriter escritorArchivor = new FileWriter(archivo.getAbsoluteFile(), true);// es un obejcto para escribir un archivo
-       BufferedWriter bw  = new BufferedWriter(escritorArchivor);
+        BufferedWriter bw = new BufferedWriter(escritorArchivor);
         bw.write(libro.toString());
-           bw.close();
-           escritorArchivor.close();
+        bw.close();
+        escritorArchivor.close();
 
     }
 
-    public static void consutarFichero() {
+    public static float consutarFichero(Libro libro) {
+
         File archivo = new File("Libro.txt");
-   if (!archivo.exists()) {
-    System.out.println("OJO: ¡¡No existe el archivo de configuración!!");
-}
+
+        String listado = PedirDatos.pedirString("introduce el titulo");
+
+        if (listado == libro.getNombre()) {
+            
+       
+
+        } else {
+            System.out.println("No hay elementos dentro de la carpeta actual");
+
+        }
+        return libro.getPrecio();
+      
 
     }
-
 }
+
