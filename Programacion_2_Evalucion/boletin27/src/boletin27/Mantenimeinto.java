@@ -1,10 +1,9 @@
 package boletin27;
 
-import com.windar.datos.PedirDatos;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -13,6 +12,7 @@ public class Mantenimeinto {
     public static ArrayList<Libro> libros = new ArrayList<>();
 
     public static void cargarTodos() throws Exception {
+    
         File archivo = new File("Libro.txt");
         Scanner scanner = new Scanner(archivo);
         try {
@@ -29,32 +29,51 @@ public class Mantenimeinto {
     }
 
     public static void añadirLibro(Libro libro) throws IOException {
-        File archivo = new File("Libro.txt");// representa el archivo File es un objecto
-        FileWriter escritorArchivor = new FileWriter(archivo.getAbsoluteFile(), true);// es un obejcto para escribir un archivo
-        BufferedWriter bw = new BufferedWriter(escritorArchivor);
-        bw.write(libro.toString());
-        bw.close();
-        escritorArchivor.close();
-
-    }
-
-    public static float consutarFichero(Libro libro) {
-
         File archivo = new File("Libro.txt");
-
-        String listado = PedirDatos.pedirString("introduce el titulo");
-
-        if (listado == libro.getNombre()) {
-            
-       
-
-        } else {
-            System.out.println("No hay elementos dentro de la carpeta actual");
-
-        }
-        return libro.getPrecio();
-      
+        FileWriter fileWriter = new FileWriter(archivo, true);
+        PrintWriter printWriter = new PrintWriter(fileWriter);
+        printWriter.println(libro.toFichero());
+        fileWriter.close();
+        libros.add(libro);
 
     }
-}
 
+    public static Libro consutarLibro(String titulo) throws Exception {
+        for (Libro libro : libros) {
+            if (libro.getNombre().equalsIgnoreCase(titulo)) {
+                return libro;
+            }
+        }
+        throw new Exception("El libro no existe");
+    }
+
+    public static void mostrar() {
+        System.out.println(libros.toString());
+    }
+
+    public static void guardarLibros() throws IOException {
+        File archivo = new File("Libro.txt");
+        FileWriter fileWriter = new FileWriter(archivo, false);
+        PrintWriter printWriter = new PrintWriter(fileWriter);
+        for (Libro libro : libros) {
+            printWriter.println(libro);
+          
+        }
+        
+        fileWriter.close();
+    }
+
+    public static void borrarLibros() {
+        ArrayList<Libro> librosConPrecioCero = new ArrayList();
+        
+        for (Libro libro : libros) {
+            if (libro.getPrecio() == 0) {
+                librosConPrecioCero.add(libro);
+            }
+        }
+        for (Libro libro : librosConPrecioCero) {
+            libros.remove(libro);
+        }
+    }
+
+}

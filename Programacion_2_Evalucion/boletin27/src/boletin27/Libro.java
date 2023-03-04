@@ -40,23 +40,13 @@ public class Libro {
     public void setUnidades(int unidades) {
         this.unidades = unidades;
     }
-    /*@Override
-    public int compareTo(Libro libro) {
-
-        Libro libro1 = (Libro) libro;
-        if (this.nombre.compareToIgnoreCase(libro1.nombre)>0) {
-            return 1;
-        } else if (this.nombre.compareToIgnoreCase(libro1.nombre) < 0) {
-            return -1;
-
-        } else {
-            return 0;
-        }
-    }*/
-
-    
+   
     @Override
     public String toString() {
-        return " "+nombre+","+ autor +","+ precio+ ","+ unidades;
+        return "\n Titulo : "+ nombre+", Autor : "+ autor +", Precio : "+ precio+"€" + ", Unidades : "+ unidades ;
+    }
+    
+        public String toFichero() {
+        return nombre+","+ autor +","+ precio+ ","+ unidades;
     }
 }
