@@ -1,8 +1,13 @@
 package ejemploficheros;
 
 import com.windar.ficheros.Alumno;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -104,6 +109,60 @@ public class LecturaFichero {
         }
         for (Alumno al : lista) {
             System.out.println(al);
+        }
+
+    }
+
+    public void leerBuffer(File fichero) throws IOException {
+        BufferedReader bf = null;
+        try {
+            bf = new BufferedReader(new FileReader(fichero));
+            String linea;
+            linea = bf.readLine();
+            while (linea != null) {
+                System.out.println(linea);
+                linea = bf.readLine();
+            }
+
+        } catch (FileNotFoundException ex) {
+            System.out.println("Error lectura buffer" + ex.getMessage());
+
+        } catch (IOException ex) {
+            System.out.println("Error lectura");
+        } finally {
+            try {
+                bf.close();
+
+            } catch (IOException ex) {
+                System.out.println("Error al cerrar el fichero " + ex.getMessage());
+
+            }
+        }
+
+    }
+
+    public void escribirBuffer(File fichero) {
+        BufferedWriter bf = null;
+        try {
+            bf = new BufferedWriter(new FileWriter(fichero, true));
+            String linea;
+            bf.write("hola \n");
+            bf.write("que \n");
+            bf.write("tal \n");
+        } catch (FileNotFoundException ex) {
+            System.out.println("Error lectura buffer" + ex.getMessage());
+
+        } catch (IOException ex) {
+            System.out.println(ex.toString());
+        } finally {
+            try {
+                bf.close();
+
+            } catch (IOException ex) {
+                System.out.println("Error al cerrar el fichero " + ex.getMessage());
+
+            }
+
         }
 
     }

@@ -23,16 +23,16 @@ public class Biblioteca {
         System.out.println("El precio nuevo es " + libro2.getPrecio() + "€");
     }
 
-    public static void borrarLibroConPrecioCero() throws IOException {
+    public static void borrarLibroConCeroUnidad() throws IOException {
         Mantenimeinto.borrarLibros();
         Mantenimeinto.guardarLibros();
     }
 
-    public static void cambiarPrecio() throws Exception, IOException {
+    public static void cambiarLasUnidades() throws Exception, IOException {
         titulo = PedirDatos.pedirString("Escribe un titulo");
-        float nuevoPrecio = PedirDatos.pedirfloat("Escribe el precio");
+        int nuevoUnidad= PedirDatos.pedirInt("Escribe las unidades");
         Libro libro3 = Mantenimeinto.consutarLibro(titulo);
-        libro3.setPrecio(nuevoPrecio);
+        libro3.setUnidades(nuevoUnidad);
         Mantenimeinto.guardarLibros();
     }
 

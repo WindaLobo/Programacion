@@ -64,14 +64,14 @@ public class Mantenimeinto {
     }
 
     public static void borrarLibros() {
-        ArrayList<Libro> librosConPrecioCero = new ArrayList();
+        ArrayList<Libro> librosConUnidadCero = new ArrayList();
         
         for (Libro libro : libros) {
-            if (libro.getPrecio() == 0) {
-                librosConPrecioCero.add(libro);
+            if (libro.getUnidades()== 0) {
+                librosConUnidadCero.add(libro);
             }
         }
-        for (Libro libro : librosConPrecioCero) {
+        for (Libro libro : librosConUnidadCero) {
             libros.remove(libro);
         }
     }

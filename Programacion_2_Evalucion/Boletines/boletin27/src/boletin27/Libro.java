@@ -43,7 +43,7 @@ public class Libro {
    
     @Override
     public String toString() {
-        return "\n Titulo : "+ nombre+", Autor : "+ autor +", Precio : "+ precio+"€" + ", Unidades : "+ unidades ;
+        return "Titulo :"+ nombre+", Autor : "+ autor +", Precio : "+ precio+"€" + ", Unidades : "+ unidades +"\n ";
     }
     
         public String toFichero() {

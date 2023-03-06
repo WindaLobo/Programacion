@@ -12,8 +12,8 @@ public class Boletin27 {
 
         do {
             try {
-                Opcion = PedirDatos.pedirInt("1- Añadir un Libro \n2- Consultar precio \n3- Borrar libro con precio 0 "
-                        + "\n4- Modificar precio libro \n5- Mostar todo \n6- salir ");
+                Opcion = PedirDatos.pedirInt("1- Añadir un Libro \n2- Consultar precio \n3- Borrar libro con unidades 0 "
+                        + "\n4- Modificar las unidades libro \n5- Mostar todo \n6- salir ");
 
                 switch (Opcion) {
                     case 1:
@@ -23,10 +23,10 @@ public class Boletin27 {
                         Biblioteca.consultarPrecio();
                         break;
                     case 3:
-                        Biblioteca.borrarLibroConPrecioCero();
+                        Biblioteca.borrarLibroConCeroUnidad();
                         break;
                     case 4:
-                        Biblioteca.cambiarPrecio();
+                        Biblioteca.cambiarLasUnidades();
                         break;
                     case 5:
                         Mantenimeinto.mostrar();

@@ -1,2 +1,2 @@
-sol,maria,5.0,15
-luna,pedro,5.0,25
+Titulo :tierra, Autor : juan, Precio : 12.0€, Unidades : 30
+ 

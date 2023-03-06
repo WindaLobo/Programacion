@@ -3,10 +3,11 @@ package com.windar.ficheros;
 import ejemploficheros.LecturaFichero;
 import escritura.EscribirFichero;
 import java.io.File;
+import java.io.IOException;
 
 public class EjemploFicheros {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         /* File dato = new File("numeros.txt");
         LecturaFichero obx = new LecturaFichero();
 
@@ -36,11 +37,13 @@ public class EjemploFicheros {
         obx.leerPalabra(M, " ");*/
 
         EscribirFichero m = new EscribirFichero();
-        File f = new File("dia");
-        m.escribirEnElFichero(f);
-        m.añadirUnregistro(f);
+        File f = new File("Archivo");
+       // m.escribirEnElFichero(f);
+        //m.añadirUnregistro(f);
         LecturaFichero obx = new LecturaFichero();
-        obx.leerPalabra(f, "\n");
+       // obx.leerPalabra(f, "\n");
+      obx.escribirBuffer(f);
+      obx.leerBuffer(f);
 
     }
 
