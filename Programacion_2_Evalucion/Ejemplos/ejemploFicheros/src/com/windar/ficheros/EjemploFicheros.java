@@ -2,12 +2,13 @@ package com.windar.ficheros;
 
 import ejemploficheros.LecturaFichero;
 import escritura.EscribirFichero;
+import ficheroserializado.LeerEscribirSerializado;
 import java.io.File;
 import java.io.IOException;
 
 public class EjemploFicheros {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
         /* File dato = new File("numeros.txt");
         LecturaFichero obx = new LecturaFichero();
 
@@ -36,14 +37,20 @@ public class EjemploFicheros {
         System.out.println("leerPalabra - numeros.txt");
         obx.leerPalabra(M, " ");*/
 
-        EscribirFichero m = new EscribirFichero();
-        File f = new File("Archivo");
+        //EscribirFichero m = new EscribirFichero();
+        //File f = new File("Archivo");
        // m.escribirEnElFichero(f);
         //m.añadirUnregistro(f);
-        LecturaFichero obx = new LecturaFichero();
+        //LecturaFichero obx = new LecturaFichero();
        // obx.leerPalabra(f, "\n");
-      obx.escribirBuffer(f);
-      obx.leerBuffer(f);
+      //obx.escribirBuffer(f);
+      //obx.leerBuffer(f);
+      LeerEscribirSerializado leerescribir = new LeerEscribirSerializado();
+       File file = new File("Archivo");
+     // leerescribir.escribiArchivo(file);
+      //leerescribir.leerArchivo(file);
+       leerescribir.añadirAlumno(file);
+      
 
     }
 

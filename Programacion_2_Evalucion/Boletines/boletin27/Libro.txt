@@ -1,2 +1,0 @@
-Titulo :tierra, Autor : juan, Precio : 12.0€, Unidades : 30
- 

@@ -35,6 +35,7 @@ public class Mantenimeinto {
         printWriter.println(libro.toFichero());
         fileWriter.close();
         libros.add(libro);
+        
 
     }
 
@@ -49,6 +50,7 @@ public class Mantenimeinto {
 
     public static void mostrar() {
         System.out.println(libros.toString());
+        
     }
 
     public static void guardarLibros() throws IOException {

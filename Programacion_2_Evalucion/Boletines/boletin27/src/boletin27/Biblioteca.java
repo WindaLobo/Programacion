@@ -15,6 +15,8 @@ public class Biblioteca {
         int unidad = PedirDatos.pedirInt("Escribe las unidades");
         Libro libro1 = new Libro(nombre, autor, precio, unidad);
         Mantenimeinto.añadirLibro(libro1);
+
+       
     }
 
     public static void consultarPrecio() throws Exception {
