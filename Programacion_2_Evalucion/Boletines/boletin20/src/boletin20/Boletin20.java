@@ -24,10 +24,10 @@ public class Boletin20 {
         System.out.println("\nEl Avestrus:");
         Avestruz aves = new Avestruz();
         aves.Caminar();
+        
       
 
         System.out.println("\nEl Murcielago:");
-
         Murcielago mur = new Murcielago();
         mur.Caminar();
         mur.volar();
