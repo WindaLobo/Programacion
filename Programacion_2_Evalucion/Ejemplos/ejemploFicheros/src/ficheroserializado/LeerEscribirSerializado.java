@@ -1,5 +1,6 @@
 package ficheroserializado;
 
+import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -21,14 +22,13 @@ public class LeerEscribirSerializado {
             AlumnadoSerializado a13 = new AlumnadoSerializado("a", 7);
             escr.writeObject(a11);
             escr.writeObject(a12);
-
             escr.writeObject(a13);
 
         } catch (FileNotFoundException ex) {
-            System.out.println("Error al escribir al fichero" + ex.getMessage());
+            System.out.println("Error 1  al escribir al fichero" + ex.getMessage());
 
         } catch (IOException ex) {
-            System.out.println("Error lectura"+ex.getMessage());
+            System.out.println("Error 2  lectura"+ex.getMessage());
         } finally {
             try {
                 escr.close();
@@ -45,53 +45,53 @@ public class LeerEscribirSerializado {
         AlumnadoSerializado al = null;
 
         try {
-            ler = new ObjectInputStream(new FileInputStream(archivo));
+        ler = new ObjectInputStream(new FileInputStream(archivo));
+        do {
             al = (AlumnadoSerializado) ler.readObject();
-            while (al != null) {
-                
-
+            if (al != null) {
                 System.out.println(al);
-                al = (AlumnadoSerializado) ler.readObject();
             }
-        } catch (ClassNotFoundException ex) {
-            System.out.println("Error lectura1 " + ex.getMessage());
-
-        } catch (FileNotFoundException ex) {
-            System.out.println("Error lectura2" + ex.getMessage());
-
-        } catch (IOException ex) {
-            System.out.println("Error lectura3"+ex.getMessage());
-
-        } finally {
+        } while (al != null);
+    } catch (ClassNotFoundException ex) {
+        System.out.println("Error lectura1 3 " + ex.getMessage());
+    } catch (FileNotFoundException ex) {
+        System.out.println("Error lectura 4" + ex.getMessage());
+    } catch (EOFException ex) {
+        // Este catch captura la excepción EOFException que se lanza cuando se alcanza el final del archivo.
+        // Como esta excepción es esperada, no es necesario imprimir su mensaje de error.
+    } catch (IOException ex) {
+        System.out.println("Error lectura 5 " + ex.getMessage());
+    } finally {
+        if (ler != null) {
             try {
                 ler.close();
-
             } catch (IOException ex) {
                 System.out.println("Error al cerrar el fichero " + ex.getMessage());
-
             }
         }
     }
-      public void añadirAlumno(File archivo) throws IOException {
-          MeuObjectOutpuStrem x = null;
+
+    }
+      public void añadirAlumno(File archivo) {
+          MeuObjectOutpuStrem out = null;
           
         try {
-            x = new MeuObjectOutpuStrem (new FileOutputStream(archivo,true));
-            AlumnadoSerializado a11 = new AlumnadoSerializado("windar", 5);
-            AlumnadoSerializado a12 = new AlumnadoSerializado("Adrian", 6);
+            out = new MeuObjectOutpuStrem (new FileOutputStream(archivo,true));
+            AlumnadoSerializado a11 = new AlumnadoSerializado("wi", 5);
+            AlumnadoSerializado a12 = new AlumnadoSerializado("Adr", 6);
             
-            x.writeObject(a11);
-            x.writeObject(a12);
+            out.writeObject(a11);
+            out.writeObject(a12);
 
             
         } catch (FileNotFoundException ex) {
-            System.out.println("Error al escribir al fichero" + ex.getMessage());
+            System.out.println("Error 1 al escribir al fichero" + ex.getMessage());
 
         } catch (IOException ex) {
-            System.out.println("Error lectura"+ex.getMessage());
+            System.out.println("Error 2 lectura"+ex.getMessage());
         } finally {
             try {
-                x.close();
+                out.close();
 
             } catch (IOException ex) {
                 System.out.println("Error al cerrar el fichero " + ex.getMessage());

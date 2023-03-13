@@ -9,13 +9,13 @@ import java.io.IOException;
 public class EjemploFicheros {
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
-        /* File dato = new File("numeros.txt");
-        LecturaFichero obx = new LecturaFichero();
+       // File dato = new File("numeros.txt");
+        //LecturaFichero obx = new LecturaFichero();
 
-        System.out.println("leerPalabra - numeros.txt");
-        obx.leerPalabra(dato, ",");
+        //System.out.println("leerPalabra - numeros.txt");
+      //  obx.leerPalabra(dato, ",");
 
-        System.out.println("leerlinas - numeros.txt");
+       /* System.out.println("leerlinas - numeros.txt");
         obx.leerlinas(dato);
 
         //ArrayList
@@ -45,11 +45,13 @@ public class EjemploFicheros {
        // obx.leerPalabra(f, "\n");
       //obx.escribirBuffer(f);
       //obx.leerBuffer(f);
-      LeerEscribirSerializado leerescribir = new LeerEscribirSerializado();
-       File file = new File("Archivo");
-     // leerescribir.escribiArchivo(file);
+   
+  File file = new File("Archivo");
+   LeerEscribirSerializado leerescribir = new LeerEscribirSerializado();
+      leerescribir.escribiArchivo(file);
+  leerescribir.leerArchivo(file);
+    // leerescribir.añadirAlumno(file);
       //leerescribir.leerArchivo(file);
-       leerescribir.añadirAlumno(file);
       
 
     }

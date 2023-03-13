@@ -45,7 +45,7 @@ public class LecturaFichero {
     }
     //arrayList
 
-    public ArrayList<Integer> lerNumero(File ficheiro) {
+    public ArrayList<Integer> leerNumero(File ficheiro) {
         int num;
         //int aux;
         ArrayList<Integer> lista = new ArrayList<>();
@@ -93,7 +93,7 @@ public class LecturaFichero {
         return lista;
     }
 
-    public void lerObxecto(File ficheiro) {
+    public void leerObxecto(File ficheiro) {
         ArrayList<Alumno> lista = new ArrayList();
         String[] aux = new String[2];
         try {
