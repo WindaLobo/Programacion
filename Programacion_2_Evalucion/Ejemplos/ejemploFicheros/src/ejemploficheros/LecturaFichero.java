@@ -93,14 +93,15 @@ public class LecturaFichero {
         return lista;
     }
 
-    public void leerObxecto(File ficheiro) {
+    public void leerObjecto(File ficheiro) {
         ArrayList<Alumno> lista = new ArrayList();
-        String[] aux = new String[2];
+        String[] aux = new String[5];
         try {
             scann = new Scanner(ficheiro);
             while (scann.hasNextLine()) {
-                aux = scann.nextLine().split(", ");
-                lista.add(new Alumno(aux[0], Integer.parseInt(aux[1])));
+                aux = scann.nextLine().split(",");
+                lista.add(new Alumno(aux[0], Integer.parseInt(aux[1]),Integer.parseInt(aux[2]),
+                        aux[3],Double.parseDouble(aux[4])));
             }
         } catch (FileNotFoundException ex) {
             System.out.println("non se pode ler do ficheiro");
