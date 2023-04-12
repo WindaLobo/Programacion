@@ -1,4 +1,5 @@
 package boletin28;
+import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -10,20 +11,20 @@ import javax.swing.JTextField;
 public class Ventanas {
 
     JFrame marco;
-
+JFrame marco2;
     JPanel panel;
-
+    JPanel pane2;
     JLabel etiqueta1;
-    
+     JLabel etiqueta3;
     JLabel etiqueta2;
 
     JTextField lineaDeTexto;
     JPasswordField lineaDeTexto2;
-    JButton pulsar, limpiar;
+    JButton pulsar, limpiar,cerrar;
     JTextArea areaTexto;
 
     public void iniciarVentana() {
-
+       
         //Definir Componentes:
         marco = new JFrame();
 
@@ -41,24 +42,25 @@ public class Ventanas {
         limpiar = new JButton("Clean");
 
         // Caracteristica:
-        marco.setBounds(500, 200, 800, 650);
+        marco.setBounds(500, 200, 500, 600);
+     
         panel.setBounds(5, 5, 750, 750);
 
         lineaDeTexto.setBounds(200, 100, 200, 50);
-        etiqueta1.setBounds(50, 100, 100, 50);
+        etiqueta1.setBounds(100, 100, 100, 50);
 
         lineaDeTexto2.setBounds(200, 200, 200, 50);
         lineaDeTexto2.setEchoChar('*');
         
-        etiqueta2.setBounds(50, 200, 100, 50);
+        etiqueta2.setBounds(100, 200, 100, 50);
 
         areaTexto.setBounds(100, 300, 300, 100);
 
-        pulsar.setBounds(100, 500, 150, 50);
+        pulsar.setBounds(100, 450, 100, 50);
         
         pulsar.setToolTipText(" Pressing ");
     
-        limpiar.setBounds(300, 500, 150, 50);
+        limpiar.setBounds(300, 450, 100, 50);
 
         limpiar.setToolTipText(" We left the program ");
         
@@ -76,6 +78,6 @@ public class Ventanas {
         marco.add(panel);
         marco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         marco.setVisible(true);
-
+        
     }
 }

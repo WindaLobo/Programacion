@@ -21,8 +21,8 @@ public class Main {
         PruebaEventosVentana ventana2 = new PruebaEventosVentana();
          Crearventana(ventana,ventana2 );*/
         //new CambioEstado();
-       // new EventosTeclados();
-         new EventoRaton();
+        new EventosTeclados();
+         //new EventoRaton();
 
     }
 
