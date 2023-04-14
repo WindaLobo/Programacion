@@ -11,16 +11,6 @@ public class NewJFrame extends javax.swing.JFrame {
     public NewJFrame() {
         initComponents();
 
-        jButton1.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                jPasswordField1.setText("");
-                jTextField2.setText("");
-                jTextArea1.setText("");
-
-            }
-        });
         jButton2.addActionListener(new ActionListener() {
 
             @Override
@@ -211,7 +201,9 @@ public class NewJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jPasswordField1VetoableChange
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
+            jPasswordField1.setText("");
+                jTextField2.setText("");
+                jTextArea1.setText("");
 
     }//GEN-LAST:event_jButton1ActionPerformed
 

@@ -1,13 +1,19 @@
-
 package boletin29;
 
-import javax.swing.JOptionPane;
-
+import java.awt.Image;
+import java.awt.Toolkit;
 
 public class Ventana1 extends javax.swing.JFrame {
 
     public Ventana1() {
         initComponents();
+
+        this.setLocationRelativeTo(this);
+
+        Toolkit miPantalla = Toolkit.getDefaultToolkit();
+        Image miIcono = miPantalla.getImage("src/boletin29/images.jpg");
+        setIconImage(miIcono);
+
     }
 
     @SuppressWarnings("unchecked")
@@ -20,7 +26,7 @@ public class Ventana1 extends javax.swing.JFrame {
         jLabel35 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
-        TxtFullName = new javax.swing.JTextField();
+        TxtUserName = new javax.swing.JTextField();
         jLabel38 = new javax.swing.JLabel();
         TxtUserID = new javax.swing.JTextField();
         CbGroup6 = new javax.swing.JComboBox<>();
@@ -34,12 +40,12 @@ public class Ventana1 extends javax.swing.JFrame {
         JpPassword = new javax.swing.JPasswordField();
         JbOK3 = new javax.swing.JButton();
         JbCancel3 = new javax.swing.JButton();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        JtxtUserName = new javax.swing.JTextPane();
+        TxtFullName = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
-        jPanel5.setBackground(new java.awt.Color(210, 228, 246));
+        jPanel5.setBackground(new java.awt.Color(204, 204, 204));
 
         jLabel33.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         jLabel33.setText("Crate a new user");
@@ -53,10 +59,10 @@ public class Ventana1 extends javax.swing.JFrame {
         jLabel37.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel37.setText("User ID:");
 
-        TxtFullName.setName("TxtFullName"); // NOI18N
-        TxtFullName.addActionListener(new java.awt.event.ActionListener() {
+        TxtUserName.setName("TxtUserName"); // NOI18N
+        TxtUserName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtFullNameTxtFullNameActionPerformed(evt);
+                TxtUserNameTxtFullNameActionPerformed(evt);
             }
         });
 
@@ -151,17 +157,23 @@ public class Ventana1 extends javax.swing.JFrame {
             }
         });
 
-        jScrollPane5.setViewportView(JtxtUserName);
+        TxtFullName.setName("TxtFullName"); // NOI18N
+        TxtFullName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtFullNameTxtFullNameActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(jLabel33))
+                .addGap(22, 22, 22)
+                .addComponent(jLabel33)
+                .addGap(56, 56, 56))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -174,11 +186,14 @@ public class Ventana1 extends javax.swing.JFrame {
                                     .addComponent(jLabel37)
                                     .addComponent(jLabel38))
                                 .addGap(40, 40, 40)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(CbGroup6, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(TxtFullName, javax.swing.GroupLayout.DEFAULT_SIZE, 269, Short.MAX_VALUE)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(TxtUserName)
                                     .addComponent(TxtUserID)
-                                    .addComponent(jScrollPane5)))
+                                    .addComponent(TxtFullName)))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(113, 113, 113)
+                                .addComponent(CbGroup6, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel39)
@@ -186,38 +201,42 @@ public class Ventana1 extends javax.swing.JFrame {
                                     .addComponent(jLabel41)
                                     .addComponent(jLabel42))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(CbGroup, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(JpConfirm, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
+                                    .addComponent(JpPassword)
                                     .addComponent(TxtHomeDirectory)
-                                    .addComponent(JpConfirm)
-                                    .addComponent(JpPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE))))))
-                .addContainerGap(101, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(JbCancel3, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JbOK3, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel5Layout.createSequentialGroup()
+                                        .addComponent(CbGroup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))))))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(JbCancel3, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JbOK3, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jLabel33)
                 .addGap(28, 28, 28)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel34)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel36)
-                        .addComponent(TxtFullName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel35))
+                    .addComponent(TxtUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(jLabel36))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(TxtFullName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel35)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel37)
-                    .addComponent(TxtUserID, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(TxtUserID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(CbGroup6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -238,11 +257,11 @@ public class Ventana1 extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel42)
                     .addComponent(JpConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addGap(41, 41, 41)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JbOK3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JbCancel3))
-                .addGap(27, 27, 27))
+                .addGap(53, 53, 53))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -265,9 +284,9 @@ public class Ventana1 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TxtFullNameTxtFullNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtFullNameTxtFullNameActionPerformed
+    private void TxtUserNameTxtFullNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtUserNameTxtFullNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TxtFullNameTxtFullNameActionPerformed
+    }//GEN-LAST:event_TxtUserNameTxtFullNameActionPerformed
 
     private void TxtUserIDTxtUserIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtUserIDTxtUserIDActionPerformed
         // TODO add your handling code here:
@@ -302,23 +321,23 @@ public class Ventana1 extends javax.swing.JFrame {
     }//GEN-LAST:event_JpPasswordJpPasswordActionPerformed
 
     private void JbOK3JbOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JbOK3JbOKActionPerformed
-        String Posword1 = JpPassword.getText();
-        if (Posword1.equalsIgnoreCase("win")){
-            Principal ventana = new Principal();
-            ventana.show();
-            this.dispose();
-        } else{
-            JOptionPane.showMessageDialog(this," El acceso es incorreto","Error",JOptionPane.ERROR_MESSAGE);
 
-        }
     }//GEN-LAST:event_JbOK3JbOKActionPerformed
 
     private void JbCancel3JbCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JbCancel3JbCancelActionPerformed
-        dispose();
-        System.exit(0);
+        TxtUserID.setText("");
+        TxtUserName.setText("");
+        TxtFullName.setText("");
+        TxtHomeDirectory.setText("");
+        JpPassword.setText("");
+        JpConfirm.setText("");
+
+
     }//GEN-LAST:event_JbCancel3JbCancelActionPerformed
 
-    
+    private void TxtFullNameTxtFullNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtFullNameTxtFullNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_TxtFullNameTxtFullNameActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -328,10 +347,10 @@ public class Ventana1 extends javax.swing.JFrame {
     private javax.swing.JButton JbOK3;
     private javax.swing.JPasswordField JpConfirm;
     private javax.swing.JPasswordField JpPassword;
-    private javax.swing.JTextPane JtxtUserName;
     private javax.swing.JTextField TxtFullName;
     private javax.swing.JTextField TxtHomeDirectory;
     private javax.swing.JTextField TxtUserID;
+    private javax.swing.JTextField TxtUserName;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
@@ -343,6 +362,5 @@ public class Ventana1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JScrollPane jScrollPane5;
     // End of variables declaration//GEN-END:variables
 }

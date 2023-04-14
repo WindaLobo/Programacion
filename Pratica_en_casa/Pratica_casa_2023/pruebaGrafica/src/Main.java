@@ -15,7 +15,7 @@ public class Main {
        //new PruebaDibujo();
       // new PruebaDibujoColor();
        //new PruebaConFuetes();
-     //new PruebaImagenes();
+        //  new PruebaImagenes();
         // new PruebaEventosColores();
         // determinarTipoDeFuente();
      /*  PruebaEventosVentana ventana = new PruebaEventosVentana();
