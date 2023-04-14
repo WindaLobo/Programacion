@@ -76,7 +76,6 @@ public class Ventana1 extends javax.swing.JFrame {
             }
         });
 
-        CbGroup6.setEditable(true);
         CbGroup6.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         CbGroup6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Staff" }));
         CbGroup6.setName(""); // NOI18N
@@ -104,7 +103,6 @@ public class Ventana1 extends javax.swing.JFrame {
         jLabel40.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel40.setText("Login Shell:");
 
-        CbGroup.setEditable(true);
         CbGroup.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         CbGroup.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "/bin/ksh" }));
         CbGroup.setName(""); // NOI18N
@@ -122,7 +120,6 @@ public class Ventana1 extends javax.swing.JFrame {
         jLabel41.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel41.setText("Password:");
 
-        JpConfirm.setText("jPasswordField1");
         JpConfirm.setEchoChar('*');
         JpConfirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,7 +130,6 @@ public class Ventana1 extends javax.swing.JFrame {
         jLabel42.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel42.setText("Confirm:");
 
-        JpPassword.setText("jPasswordField1");
         JpPassword.setEchoChar('*');
         JpPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,6 +139,10 @@ public class Ventana1 extends javax.swing.JFrame {
 
         JbOK3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         JbOK3.setText("Ok");
+        JbOK3.setDoubleBuffered(true);
+        JbOK3.setMaximumSize(new java.awt.Dimension(74, 23));
+        JbOK3.setMinimumSize(new java.awt.Dimension(74, 23));
+        JbOK3.setPreferredSize(new java.awt.Dimension(74, 23));
         JbOK3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JbOK3JbOKActionPerformed(evt);
@@ -151,6 +151,7 @@ public class Ventana1 extends javax.swing.JFrame {
 
         JbCancel3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         JbCancel3.setText("Cancel");
+        JbCancel3.setDoubleBuffered(true);
         JbCancel3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JbCancel3JbCancelActionPerformed(evt);
@@ -173,46 +174,45 @@ public class Ventana1 extends javax.swing.JFrame {
                 .addComponent(jLabel33)
                 .addGap(56, 56, 56))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(16, 16, 16)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel35)
-                                        .addComponent(jLabel36, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addComponent(jLabel37)
-                                    .addComponent(jLabel38))
-                                .addGap(40, 40, 40)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(TxtUserName)
-                                    .addComponent(TxtUserID)
-                                    .addComponent(TxtFullName)))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGap(113, 113, 113)
-                                .addComponent(CbGroup6, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel39)
-                                    .addComponent(jLabel40)
-                                    .addComponent(jLabel41)
-                                    .addComponent(jLabel42))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(JpConfirm, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
-                                    .addComponent(JpPassword)
-                                    .addComponent(TxtHomeDirectory)
-                                    .addGroup(jPanel5Layout.createSequentialGroup()
-                                        .addComponent(CbGroup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))))))
+                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel34, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel35)
+                                .addComponent(jLabel36, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel37)
+                            .addComponent(jLabel38))
+                        .addGap(40, 40, 40)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TxtUserName)
+                            .addComponent(TxtUserID)
+                            .addComponent(TxtFullName)))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(JbCancel3, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(JbOK3, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(113, 113, 113)
+                        .addComponent(CbGroup6, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel39)
+                            .addComponent(jLabel40)
+                            .addComponent(jLabel41)
+                            .addComponent(jLabel42))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(JpConfirm)
+                            .addComponent(JpPassword)
+                            .addComponent(TxtHomeDirectory)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addComponent(CbGroup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addGap(79, 79, 79)
+                        .addComponent(JbCancel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(JbOK3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22)))
                 .addGap(18, 18, 18))
         );
         jPanel5Layout.setVerticalGroup(
@@ -259,7 +259,7 @@ public class Ventana1 extends javax.swing.JFrame {
                     .addComponent(JpConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(41, 41, 41)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JbOK3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JbOK3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JbCancel3))
                 .addGap(53, 53, 53))
         );
