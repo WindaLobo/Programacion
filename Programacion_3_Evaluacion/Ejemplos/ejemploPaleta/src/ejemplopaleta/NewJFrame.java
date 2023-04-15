@@ -1,8 +1,5 @@
 package ejemplopaleta;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import javax.swing.JOptionPane;
 
 public class NewJFrame extends javax.swing.JFrame {
@@ -11,18 +8,7 @@ public class NewJFrame extends javax.swing.JFrame {
     public NewJFrame() {
         initComponents();
 
-        jButton2.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String nombre = jTextField2.getText();
-                String texto = jTextArea1.getText();
-                String Posword = jPasswordField1.getText();
-               // JOptionPane.showMessageDialog(null, nombre + " \n " + texto);
-
-            }
-        });
-
+     
     }
 
     @SuppressWarnings("unchecked")
@@ -174,6 +160,10 @@ public class NewJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+ String nombre = jTextField2.getText();
+                String texto = jTextArea1.getText();
+                String Posword = jPasswordField1.getText();
+               // JOptionPane.showMessageDialog(null, nombre + " \n " + texto);
 
 
     }//GEN-LAST:event_jTextField2ActionPerformed

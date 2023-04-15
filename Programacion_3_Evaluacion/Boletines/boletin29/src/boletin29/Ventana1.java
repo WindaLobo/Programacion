@@ -38,9 +38,9 @@ public class Ventana1 extends javax.swing.JFrame {
         JpConfirm = new javax.swing.JPasswordField();
         jLabel42 = new javax.swing.JLabel();
         JpPassword = new javax.swing.JPasswordField();
-        JbOK3 = new javax.swing.JButton();
-        JbCancel3 = new javax.swing.JButton();
+        JbCancel = new javax.swing.JButton();
         TxtFullName = new javax.swing.JTextField();
+        JbOK = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -137,24 +137,12 @@ public class Ventana1 extends javax.swing.JFrame {
             }
         });
 
-        JbOK3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        JbOK3.setText("Ok");
-        JbOK3.setDoubleBuffered(true);
-        JbOK3.setMaximumSize(new java.awt.Dimension(74, 23));
-        JbOK3.setMinimumSize(new java.awt.Dimension(74, 23));
-        JbOK3.setPreferredSize(new java.awt.Dimension(74, 23));
-        JbOK3.addActionListener(new java.awt.event.ActionListener() {
+        JbCancel.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        JbCancel.setText("Cancel");
+        JbCancel.setDoubleBuffered(true);
+        JbCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JbOK3JbOKActionPerformed(evt);
-            }
-        });
-
-        JbCancel3.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        JbCancel3.setText("Cancel");
-        JbCancel3.setDoubleBuffered(true);
-        JbCancel3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JbCancel3JbCancelActionPerformed(evt);
+                JbCancelJbCancelActionPerformed(evt);
             }
         });
 
@@ -162,6 +150,16 @@ public class Ventana1 extends javax.swing.JFrame {
         TxtFullName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TxtFullNameTxtFullNameActionPerformed(evt);
+            }
+        });
+
+        JbOK.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        JbOK.setText("Ok");
+        JbOK.setMaximumSize(new java.awt.Dimension(74, 23));
+        JbOK.setMinimumSize(new java.awt.Dimension(74, 23));
+        JbOK.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JbOKActionPerformed(evt);
             }
         });
 
@@ -192,7 +190,7 @@ public class Ventana1 extends javax.swing.JFrame {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(113, 113, 113)
                         .addComponent(CbGroup6, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 155, Short.MAX_VALUE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel39)
@@ -208,11 +206,11 @@ public class Ventana1 extends javax.swing.JFrame {
                                 .addComponent(CbGroup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                        .addGap(79, 79, 79)
-                        .addComponent(JbCancel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(JbOK3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(22, 22, 22)))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(JbCancel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(JbOK, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)))
                 .addGap(18, 18, 18))
         );
         jPanel5Layout.setVerticalGroup(
@@ -259,8 +257,8 @@ public class Ventana1 extends javax.swing.JFrame {
                     .addComponent(JpConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(41, 41, 41)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JbOK3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(JbCancel3))
+                    .addComponent(JbCancel)
+                    .addComponent(JbOK, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(53, 53, 53))
         );
 
@@ -269,8 +267,7 @@ public class Ventana1 extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -320,11 +317,7 @@ public class Ventana1 extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_JpPasswordJpPasswordActionPerformed
 
-    private void JbOK3JbOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JbOK3JbOKActionPerformed
-
-    }//GEN-LAST:event_JbOK3JbOKActionPerformed
-
-    private void JbCancel3JbCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JbCancel3JbCancelActionPerformed
+    private void JbCancelJbCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JbCancelJbCancelActionPerformed
         TxtUserID.setText("");
         TxtUserName.setText("");
         TxtFullName.setText("");
@@ -333,18 +326,22 @@ public class Ventana1 extends javax.swing.JFrame {
         JpConfirm.setText("");
 
 
-    }//GEN-LAST:event_JbCancel3JbCancelActionPerformed
+    }//GEN-LAST:event_JbCancelJbCancelActionPerformed
 
     private void TxtFullNameTxtFullNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtFullNameTxtFullNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_TxtFullNameTxtFullNameActionPerformed
 
+    private void JbOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JbOKActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JbOKActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> CbGroup;
     private javax.swing.JComboBox<String> CbGroup6;
-    private javax.swing.JButton JbCancel3;
-    private javax.swing.JButton JbOK3;
+    private javax.swing.JButton JbCancel;
+    private javax.swing.JButton JbOK;
     private javax.swing.JPasswordField JpConfirm;
     private javax.swing.JPasswordField JpPassword;
     private javax.swing.JTextField TxtFullName;
