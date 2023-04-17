@@ -23,7 +23,7 @@ public class Main {
          Crearventana(ventana,ventana2 );*/
         //new CambioEstado();
        // new EventosTeclados();
-         //new EventoRaton();
+         new EventoRaton();
 
     }
 

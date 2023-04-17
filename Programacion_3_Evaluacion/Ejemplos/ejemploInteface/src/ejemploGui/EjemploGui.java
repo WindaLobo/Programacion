@@ -9,12 +9,17 @@ public class EjemploGui {
         ventanaDos.iniciar();*/
  /*Componentes componentes= new Componentes();
        componentes.iniciarComponentes();*/
-        Layout layout = new Layout();
-    //layout.distribuidorFlowLayaout();
+   // Layout layout = new Layout();
+        //layout.distribuidorFlowLayaout();
         //layout.distribuidorBoxLayout();
         //layout.distribuidorBorderLayout();
-         layout.distribuidorGridLayout();
+        // layout.distribuidorGridLayout();
+ /* EventosMismaClase evento= new EventosMismaClase();
+ evento.iniciarComponentes();*/
+        EventoClaseInterna evento = new EventoClaseInterna();
+        evento.iniciarComponentes();
 
+      
     }
 
 }

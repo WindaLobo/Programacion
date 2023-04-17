@@ -1,9 +1,18 @@
+
 package ejemploGui;
 
 import java.awt.Color;
-import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
-public class Componentes {
+public class EventosMismaClase implements ActionListener {
+ 
 
     JFrame marco;
     JPanel panel;
@@ -35,6 +44,10 @@ public class Componentes {
         botonSalir.setBounds(500, 600, 150, 100);
         botonSalir.setText(" Salir ");
         botonSalir.setToolTipText(" Salimos del programa ");
+          //Gestin Eventos
+          botonCopiar.addActionListener(this);//metodo va en la misma clase
+          botonSalir.addActionListener(this);
+          
 
         //Agregamos componentes al panel
         panel.setLayout(null);
@@ -47,9 +60,26 @@ public class Componentes {
         marco.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         marco.setVisible(true);
         
-        //Eventos
+      
         
 
     }
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+      Object botonSal=  e.getSource();
+      if(botonSal==botonCopiar){
+        areaTexto.setText(jTnombre.getText());
+    }
+      else if(botonSalir==botonSal){
+          jTnombre.setText("");
+          areaTexto.setText("");
+          System.exit(0);
+          
+      }
+    
+    }
 }
+
+    
+
