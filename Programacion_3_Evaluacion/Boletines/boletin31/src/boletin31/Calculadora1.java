@@ -139,6 +139,11 @@ public class Calculadora1 extends javax.swing.JFrame {
         jButtonMultiplicar.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jButtonMultiplicar.setText("*");
         jButtonMultiplicar.setMaximumSize(null);
+        jButtonMultiplicar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonMultiplicarActionPerformed(evt);
+            }
+        });
 
         jButton1.setBackground(new java.awt.Color(204, 204, 204));
         jButton1.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
@@ -381,7 +386,7 @@ public class Calculadora1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButtonpuntoSumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonpuntoSumaActionPerformed
-       
+    
         numeroUno = Float.parseFloat(jLabelPantalla.getText());
         
         operador = "+";
@@ -420,6 +425,12 @@ public class Calculadora1 extends javax.swing.JFrame {
         operador = "-";
         jLabelPantalla.setText("");
     }//GEN-LAST:event_jButtonRestaActionPerformed
+
+    private void jButtonMultiplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMultiplicarActionPerformed
+        numeroUno = Float.parseFloat(jLabelPantalla.getText());
+        operador = "*";
+        jLabelPantalla.setText("");
+    }//GEN-LAST:event_jButtonMultiplicarActionPerformed
 
     private String sincero(Float resultado) {
         String numero = "";
