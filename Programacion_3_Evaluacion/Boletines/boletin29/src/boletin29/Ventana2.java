@@ -61,6 +61,12 @@ public class Ventana2 extends javax.swing.JFrame {
         jLabel.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         jLabel.setText("Numero devolucion del Cliente");
 
+        JTNumeriDevolucionCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JTNumeriDevolucionClienteActionPerformed(evt);
+            }
+        });
+
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -247,6 +253,10 @@ public class Ventana2 extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void JTNumeriDevolucionClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTNumeriDevolucionClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JTNumeriDevolucionClienteActionPerformed
 
   
 

@@ -16,8 +16,10 @@ public class EjemploGui {
         // layout.distribuidorGridLayout();
  /* EventosMismaClase evento= new EventosMismaClase();
  evento.iniciarComponentes();*/
-        EventoClaseInterna evento = new EventoClaseInterna();
-        evento.iniciarComponentes();
+        //EventoClaseInterna evento = new EventoClaseInterna();
+        //evento.iniciarComponentes();
+        ClaseAnonima anonima = new ClaseAnonima();
+        anonima.iniciarComponentes();
 
       
     }
