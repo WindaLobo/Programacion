@@ -14,7 +14,7 @@ public class Ventana extends javax.swing.JFrame {
     public Ventana() {
         initComponents();
         this.setLocationRelativeTo(this);
-         Toolkit miPantalla = Toolkit.getDefaultToolkit();
+        Toolkit miPantalla = Toolkit.getDefaultToolkit();
         Image miIcono = miPantalla.getImage("src/boletin30/images.jpg");
         setIconImage(miIcono);
     }
@@ -163,6 +163,8 @@ public class Ventana extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JBAgregarTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBAgregarTablaActionPerformed
+
+     
         if (JtName.getText().equalsIgnoreCase("") || JtLastName.getText().equalsIgnoreCase("") || CboxCouse.getSelectedItem().equals("")) {
             JOptionPane.showMessageDialog(null, "Enter the data ");
         } else {
@@ -170,7 +172,6 @@ public class Ventana extends javax.swing.JFrame {
             DefaultTableModel tabla = (DefaultTableModel) jTableInfomacion.getModel();
             tabla.addRow(informacion);
         }
-
 
     }//GEN-LAST:event_JBAgregarTablaActionPerformed
 
