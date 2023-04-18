@@ -25,8 +25,8 @@ public class Ventana extends javax.swing.JFrame {
 
         Lname = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        JtName = new javax.swing.JTextField();
         CboxCouse = new javax.swing.JComboBox<>();
+        JtName = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         LlastName = new javax.swing.JLabel();
         JtLastName = new javax.swing.JTextField();
@@ -44,19 +44,19 @@ public class Ventana extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Name ");
 
-        JtName.setBackground(new java.awt.Color(255, 255, 255));
-        JtName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                JtNameActionPerformed(evt);
-            }
-        });
-
         CboxCouse.setBackground(new java.awt.Color(204, 204, 204));
         CboxCouse.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
         CboxCouse.setForeground(new java.awt.Color(0, 0, 0));
         CboxCouse.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dam1", "Asir1", "Daw1", " " }));
         CboxCouse.setFocusCycleRoot(true);
         CboxCouse.setName("Modulo"); // NOI18N
+
+        JtName.setBackground(new java.awt.Color(255, 255, 255));
+        JtName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JtNameActionPerformed(evt);
+            }
+        });
 
         LlastName.setBackground(new java.awt.Color(204, 204, 204));
         LlastName.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
@@ -163,15 +163,23 @@ public class Ventana extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JBAgregarTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBAgregarTablaActionPerformed
+        String data1 = JtName.getText();
+        String data2 = JtLastName.getText();
+        String data3 = (String) CboxCouse.getSelectedItem();
 
-     
-        if (JtName.getText().equalsIgnoreCase("") || JtLastName.getText().equalsIgnoreCase("") || CboxCouse.getSelectedItem().equals("")) {
+        Object[] row = {data1, data2, data3};
+
+        DefaultTableModel model = (DefaultTableModel) jTableInfomacion.getModel();
+
+        model.addRow(row);
+
+        /*if (JtName.getText().equalsIgnoreCase("") || JtLastName.getText().equalsIgnoreCase("") || CboxCouse.getSelectedItem().equals("")) {
             JOptionPane.showMessageDialog(null, "Enter the data ");
         } else {
-            String informacion[] = {JtName.getText(), JtLastName.getText(), (String) CboxCouse.getSelectedItem()};
+            String informacion[] = {JtName.getText(), JtLastName.getText(), (String) CboxCouse.CboxCouse()};
             DefaultTableModel tabla = (DefaultTableModel) jTableInfomacion.getModel();
             tabla.addRow(informacion);
-        }
+        }*/
 
     }//GEN-LAST:event_JBAgregarTablaActionPerformed
 
