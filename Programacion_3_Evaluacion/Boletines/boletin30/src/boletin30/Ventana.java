@@ -25,7 +25,7 @@ public class Ventana extends javax.swing.JFrame {
 
         Lname = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        CboxCouse = new javax.swing.JComboBox<>();
+        CboxCourse = new javax.swing.JComboBox<>();
         JtName = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         LlastName = new javax.swing.JLabel();
@@ -41,17 +41,14 @@ public class Ventana extends javax.swing.JFrame {
         Lname.setFocusable(false);
 
         jLabel1.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Name ");
 
-        CboxCouse.setBackground(new java.awt.Color(204, 204, 204));
-        CboxCouse.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
-        CboxCouse.setForeground(new java.awt.Color(0, 0, 0));
-        CboxCouse.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dam1", "Asir1", "Daw1", " " }));
-        CboxCouse.setFocusCycleRoot(true);
-        CboxCouse.setName("Modulo"); // NOI18N
+        CboxCourse.setBackground(new java.awt.Color(204, 204, 204));
+        CboxCourse.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
+        CboxCourse.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dam1", "Asir1", "Daw1" }));
+        CboxCourse.setFocusCycleRoot(true);
+        CboxCourse.setName("Modulo"); // NOI18N
 
-        JtName.setBackground(new java.awt.Color(255, 255, 255));
         JtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JtNameActionPerformed(evt);
@@ -60,11 +57,8 @@ public class Ventana extends javax.swing.JFrame {
 
         LlastName.setBackground(new java.awt.Color(204, 204, 204));
         LlastName.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
-        LlastName.setForeground(new java.awt.Color(0, 0, 0));
         LlastName.setText("Last name");
 
-        JtLastName.setBackground(new java.awt.Color(255, 255, 255));
-        JtLastName.setForeground(new java.awt.Color(0, 0, 0));
         JtLastName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 JtLastNameActionPerformed(evt);
@@ -72,7 +66,6 @@ public class Ventana extends javax.swing.JFrame {
         });
 
         JBAgregarTabla.setFont(new java.awt.Font("Liberation Sans", 1, 15)); // NOI18N
-        JBAgregarTabla.setForeground(new java.awt.Color(0, 0, 0));
         JBAgregarTabla.setText("Add table");
         JBAgregarTabla.setDoubleBuffered(true);
         JBAgregarTabla.setMaximumSize(new java.awt.Dimension(96, 33));
@@ -114,7 +107,7 @@ public class Ventana extends javax.swing.JFrame {
                 .addGroup(LnameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(JBAgregarTabla, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(LnameLayout.createSequentialGroup()
-                        .addComponent(CboxCouse, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(CboxCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 37, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(LnameLayout.createSequentialGroup()
@@ -128,7 +121,7 @@ public class Ventana extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addGroup(LnameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
-                    .addComponent(CboxCouse, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CboxCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(JtName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(31, 31, 31)
                 .addComponent(jLabel2)
@@ -163,24 +156,22 @@ public class Ventana extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JBAgregarTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JBAgregarTablaActionPerformed
-        String data1 = JtName.getText();
-        String data2 = JtLastName.getText();
-        String data3 = (String) CboxCouse.getSelectedItem();
+       
+      if (JtName.getText().equalsIgnoreCase("") || JtLastName.getText().equalsIgnoreCase("")) {
+            JOptionPane.showMessageDialog(null, "Enter the data ");
+            return ;
+        }
+        String name = JtName.getText();
+        String lastName= JtLastName.getText();
+        String course = (String) CboxCourse.getSelectedItem();
 
-        Object[] row = {data1, data2, data3};
+        Object[] row = {name, lastName, course};
 
         DefaultTableModel model = (DefaultTableModel) jTableInfomacion.getModel();
 
         model.addRow(row);
 
-        /*if (JtName.getText().equalsIgnoreCase("") || JtLastName.getText().equalsIgnoreCase("") || CboxCouse.getSelectedItem().equals("")) {
-            JOptionPane.showMessageDialog(null, "Enter the data ");
-        } else {
-            String informacion[] = {JtName.getText(), JtLastName.getText(), (String) CboxCouse.CboxCouse()};
-            DefaultTableModel tabla = (DefaultTableModel) jTableInfomacion.getModel();
-            tabla.addRow(informacion);
-        }*/
-
+       
     }//GEN-LAST:event_JBAgregarTablaActionPerformed
 
     private void JtLastNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JtLastNameActionPerformed
@@ -194,7 +185,7 @@ public class Ventana extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> CboxCouse;
+    private javax.swing.JComboBox<String> CboxCourse;
     private javax.swing.JButton JBAgregarTabla;
     private javax.swing.JTextField JtLastName;
     private javax.swing.JTextField JtName;
