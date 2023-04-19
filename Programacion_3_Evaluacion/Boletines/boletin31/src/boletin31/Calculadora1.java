@@ -40,7 +40,8 @@ public class Calculadora1 extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(0, 153, 255));
+        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 153, 0)));
 
         jLabelPantalla.setBackground(new java.awt.Color(255, 255, 255));
         jLabelPantalla.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -284,11 +285,11 @@ public class Calculadora1 extends javax.swing.JFrame {
                     .addComponent(jButtonDivir, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonMultiplicar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButtonMultiplicar, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -396,20 +397,20 @@ public class Calculadora1 extends javax.swing.JFrame {
         numeroSegundo = Float.parseFloat(jLabelPantalla.getText());
         switch (operador) {
             case "+":
-                jLabelPantalla.setText(sincero(numeroUno + numeroSegundo));
+                jLabelPantalla.setText(reducirCeros(numeroUno + numeroSegundo));
                 break;
             case "-":
-                jLabelPantalla.setText(sincero(numeroUno - numeroSegundo));
+                jLabelPantalla.setText(reducirCeros(numeroUno - numeroSegundo));
                 break;
             case "*":
-                jLabelPantalla.setText(sincero(numeroUno * numeroSegundo));
+                jLabelPantalla.setText(reducirCeros(numeroUno * numeroSegundo));
                 break;
             case "/":
                 if (numeroSegundo == 0) {
                     jLabelPantalla.setText("Error");
                 }else{
 
-                jLabelPantalla.setText(sincero(numeroUno / numeroSegundo));
+                jLabelPantalla.setText(reducirCeros(numeroUno / numeroSegundo));
                 break;
         
 
@@ -430,7 +431,7 @@ public class Calculadora1 extends javax.swing.JFrame {
         jLabelPantalla.setText("");
     }//GEN-LAST:event_jButtonMultiplicarActionPerformed
 
-    private String sincero(Float resultado) {
+    private String reducirCeros(Float resultado) {
         String numero = "";
         numero = Float.toString(resultado);
         if (resultado % 1 == 0) {
