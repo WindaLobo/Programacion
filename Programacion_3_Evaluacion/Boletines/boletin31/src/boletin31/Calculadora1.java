@@ -1,14 +1,21 @@
 package boletin31;
 
+import java.awt.Image;
+import java.awt.Toolkit;
 
 public class Calculadora1 extends javax.swing.JFrame {
+
     private float numeroUno;
     private float numeroSegundo;
     private String operador;
+    private float acumulador;
 
     public Calculadora1() {
         initComponents();
         this.setLocationRelativeTo(this);
+          Toolkit miPantalla = Toolkit.getDefaultToolkit();
+        Image miIcono = miPantalla.getImage("src/boletin31/c.jpg");
+        setIconImage(miIcono);
 
     }
 
@@ -223,7 +230,7 @@ public class Calculadora1 extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(12, 26, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -232,7 +239,7 @@ public class Calculadora1 extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButtonResta, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGap(0, 16, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -271,10 +278,10 @@ public class Calculadora1 extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(42, 42, 42)
+                .addGap(48, 48, 48)
                 .addComponent(jLabelPantalla, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonAC, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonOFF, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -309,7 +316,7 @@ public class Calculadora1 extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -326,9 +333,15 @@ public class Calculadora1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton0ActionPerformed
 
     private void jButtonDivirjButtonDivirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDivirjButtonDivirActionPerformed
-        numeroUno = Float.parseFloat(jLabelPantalla.getText());
-        operador = "/";
-        jLabelPantalla.setText("");
+
+        String pantallaText = jLabelPantalla.getText();
+        if (!pantallaText.isEmpty()) {
+            numeroUno = Float.parseFloat(pantallaText);
+            operador = "/";
+            jLabelPantalla.setText(pantallaText + "/");
+            jLabelPantalla.setText("");
+
+        }
     }//GEN-LAST:event_jButtonDivirjButtonDivirActionPerformed
 
     private void jButton8jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8jButton8ActionPerformed
@@ -336,8 +349,8 @@ public class Calculadora1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton8jButton8ActionPerformed
 
     private void jButtonOFFjButtonAC1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOFFjButtonAC1ActionPerformed
-   System.exit(0);
-        
+        System.exit(0);
+
     }//GEN-LAST:event_jButtonOFFjButtonAC1ActionPerformed
 
     private void jButtonACjButtonACActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonACjButtonACActionPerformed
@@ -385,50 +398,71 @@ public class Calculadora1 extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButtonpuntoSumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonpuntoSumaActionPerformed
-    
-        numeroUno = Float.parseFloat(jLabelPantalla.getText());
+
+        String pantallaText = jLabelPantalla.getText();
+        if (!pantallaText.isEmpty()) {
+            numeroUno = Float.parseFloat(pantallaText);
+            operador = "+";
+            jLabelPantalla.setText(pantallaText + "+");
+            jLabelPantalla.setText("");
+
+        }
         
-        operador = "+";
-         
-        jLabelPantalla.setText("");
     }//GEN-LAST:event_jButtonpuntoSumaActionPerformed
 
     private void jButtonpuntoIgualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonpuntoIgualActionPerformed
-        numeroSegundo = Float.parseFloat(jLabelPantalla.getText());
-        switch (operador) {
-            case "+":
-                jLabelPantalla.setText(reducirCeros(numeroUno + numeroSegundo));
-                break;
-            case "-":
-                jLabelPantalla.setText(reducirCeros(numeroUno - numeroSegundo));
-                break;
-            case "*":
-                jLabelPantalla.setText(reducirCeros(numeroUno * numeroSegundo));
-                break;
-            case "/":
-                if (numeroSegundo == 0) {
-                    jLabelPantalla.setText("Error");
-                }else{
-
-                jLabelPantalla.setText(reducirCeros(numeroUno / numeroSegundo));
-                break;
+        String pantallaText = jLabelPantalla.getText();
         
+        if (!pantallaText.isEmpty()) {
+            
+            numeroSegundo = Float.parseFloat(pantallaText);
 
-        }
+            switch (operador) {
+                case "+":
+                    jLabelPantalla.setText(reducirCeros(numeroUno + numeroSegundo));
+                   
+                    break;
+                case "-":
+                    jLabelPantalla.setText(reducirCeros(numeroUno - numeroSegundo));
+                    break;
+                case "*":
+                    jLabelPantalla.setText(reducirCeros(numeroUno * numeroSegundo));
+                    break;
+                case "/":
+                    if (numeroSegundo == 0) {
+                        jLabelPantalla.setText("Error");
+                    } else {
+
+                        jLabelPantalla.setText(reducirCeros(numeroUno / numeroSegundo));
+                        break;
+                    }
+            }
         }
 
     }//GEN-LAST:event_jButtonpuntoIgualActionPerformed
 
     private void jButtonRestaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRestaActionPerformed
-        numeroUno = Float.parseFloat(jLabelPantalla.getText());
-        operador = "-";
-        jLabelPantalla.setText("");
+        String pantallaText = jLabelPantalla.getText();
+        if (!pantallaText.isEmpty()) {
+            numeroUno = Float.parseFloat(pantallaText);
+            operador = "-";
+            jLabelPantalla.setText(pantallaText + "-");
+            jLabelPantalla.setText("");
+
+        }
+
     }//GEN-LAST:event_jButtonRestaActionPerformed
 
     private void jButtonMultiplicarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMultiplicarActionPerformed
-        numeroUno = Float.parseFloat(jLabelPantalla.getText());
-        operador = "*";
-        jLabelPantalla.setText("");
+
+        String pantallaText = jLabelPantalla.getText();
+        if (!pantallaText.isEmpty()) {
+            numeroUno = Float.parseFloat(pantallaText);
+            operador = "*";
+            jLabelPantalla.setText(pantallaText + "*");
+            jLabelPantalla.setText("");
+
+        }
     }//GEN-LAST:event_jButtonMultiplicarActionPerformed
 
     private String reducirCeros(Float resultado) {
