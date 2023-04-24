@@ -48,6 +48,11 @@ public class Ventana extends javax.swing.JFrame {
         CboxCourse.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dam1", "Asir1", "Daw1" }));
         CboxCourse.setFocusCycleRoot(true);
         CboxCourse.setName("Modulo"); // NOI18N
+        CboxCourse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CboxCourseActionPerformed(evt);
+            }
+        });
 
         JtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -165,7 +170,7 @@ public class Ventana extends javax.swing.JFrame {
         String lastName= JtLastName.getText();
         String course = (String) CboxCourse.getSelectedItem();
 
-        Object[] row = {name, lastName, course};
+        Object[] row = {name, lastName, course};// Cell createCell(int column)
 
         DefaultTableModel model = (DefaultTableModel) jTableInfomacion.getModel();
 
@@ -182,6 +187,10 @@ public class Ventana extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_JtNameActionPerformed
+
+    private void CboxCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CboxCourseActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CboxCourseActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
