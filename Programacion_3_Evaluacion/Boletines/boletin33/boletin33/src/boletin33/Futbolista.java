@@ -1,18 +1,21 @@
-
 package boletin33;
 
+public class Futbolista extends SeleccionFutbol {
 
-public class Futbolista extends SeleccionFutbol{
     private int dorsal;
     private String demarcacion;
 
-  
-   void entrevista(){
-       System.out.println("No tienes entrevista ");
-       
-   }
+    public Futbolista(int id, String nombre, String apellido, int edad, int dorsal, String demarcacion) {
+        super(id, nombre, apellido, edad);
+        this.demarcacion = demarcacion;
+        this.dorsal = dorsal;
+    }
 
-   
+    public void entrevista() {
+        System.out.println("No tienes entrevista ");
+
+    }
+
     public int getDorsal() {
         return dorsal;
     }
@@ -28,20 +31,10 @@ public class Futbolista extends SeleccionFutbol{
     public void setDemarcacion(String demarcacion) {
         this.demarcacion = demarcacion;
     }
-  public Futbolista(int id, String nombre, String apellido, int edad,int dorsal,String demarcacion) {
-        super(id, nombre, apellido, edad);
-        this.demarcacion=demarcacion;
-        this.dorsal=dorsal;
-    }
 
-  
-    
     @Override
     public String toString() {
-        return "\nId: " + id + "\nNombre: " + nombre + "\nApellido: " +apellido+ "\nEdad: " + edad +  "\nDorsal: " + dorsal + "\nDemarcacion: " + demarcacion ;
+        return "\nId: " + id + "\nNombre: " + nombre + "\nApellido: " + apellido + "\nEdad: " + edad + "\nDorsal: " + dorsal + "\nDemarcacion: " + demarcacion;
     }
-    
-    
-    
-    
+
 }

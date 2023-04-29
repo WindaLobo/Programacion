@@ -26,7 +26,7 @@ public class Entrenador extends SeleccionFutbol {
 
      @Override
     public String toString() {
-        return  "\nIdFederacio: " + idFederacio + "\nid:" + id + "\nNombre :" + nombre + "\nApellido :" + apellido + "\nEdad" + edad ;
+        return  "\nIdFederacio: " + idFederacio + "\nId: " + id + "\nNombre: " + nombre + "\nApellido: " + apellido + "\nEdad: " + edad ;
     }
 
 }

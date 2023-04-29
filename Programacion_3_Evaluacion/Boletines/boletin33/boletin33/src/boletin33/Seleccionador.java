@@ -8,12 +8,12 @@ public class Seleccionador extends SeleccionFutbol{
         super(id, nombre, apellido, edad);
     }
      void seleccionarXogador(){
-        System.out.println("No tiene seelccion");
+        System.out.println("Selecion de jugador");
         
     }
       @Override
     public String toString() {
-        return "\nid=" + id + ", nombre=" + nombre + ", spellido=" + apellido + ", edad=" + edad ;
+        return "\nId: " + id + "\nNombre: " + nombre + "\nApellido: " + apellido + "\nEdad: " + edad ;
     }
 
     

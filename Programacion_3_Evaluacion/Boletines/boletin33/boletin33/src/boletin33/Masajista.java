@@ -34,7 +34,7 @@ public class Masajista extends SeleccionFutbol {
 
     @Override
     public String toString() {
-        return "\nid: " + id + "\nnombre: " + nombre + "\nspellido=" + apellido + "\nedad: " + edad +"\nTitulacion: " + titulacion + "\na\u00f1oDeExperiencia: " + añoDeExperiencia ;
+        return "\nId: " + id + "\nNnombre: " + nombre + "\nApellido: " + apellido + "\nEdad: " + edad +"\nTitulacion: " + titulacion + "\na\u00f1oDeExperiencia: " + añoDeExperiencia ;
     }
 
  
