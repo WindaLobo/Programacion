@@ -11,7 +11,7 @@ public  abstract  class   Empleado {
       private double salarioBase;
     private LocalDate  fechaDeIngreso;
 
-    public Empleado(String dni, String nombre, String apellidos,double salarioBase, LocalDate  fechaDeIngreso) {
+    public Empleado(String dni, String nombre, String apellidos,double salarioBase, LocalDate fechaDeIngreso) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellidos = apellidos;
