@@ -15,7 +15,7 @@ public class Boletin34 {
         ArrayList<Empleado> empleados = new ArrayList<>();
 
         do {
-            
+
             Opcion = (String) JOptionPane.showInputDialog(null, "Empresa ServiSoft", "Opcion",
                     JOptionPane.QUESTION_MESSAGE, null, opciones, opciones[0]);
 
@@ -34,28 +34,17 @@ public class Boletin34 {
                     break;
 
                 case "VISUALIZAR":
+                    vizualizacion(empleados);
 
-                    if (empleados.isEmpty()) {
-                        JOptionPane.showMessageDialog(null, "No hay empleados registrados");
-                    } else {
-                        Empleado emp = empleados.get(empleados.size() - 1);
-                        if (emp instanceof Contratado) {
-                            Contratado contratado = (Contratado) emp;
-                            JOptionPane.showMessageDialog(null, "\n Empleado Contratado: " + emp.toString() + "\n El salario basico: €" + contratado.calcularSalario());
-                        } else if (emp instanceof Permanente) {
-                            Permanente permanente = (Permanente) emp;
-                            JOptionPane.showMessageDialog(null, "\n Empleado Permanente: " + emp.toString() + "\n El salario basico: €" + permanente.calcularSalario());
-                        }
-                    }
                     break;
 
                 case "SALIR":
-                    
+
                     break;
             }
         } while (!Opcion.equalsIgnoreCase("SALIR"));
     }
-    
+
     private static Empleado datosIntroducido(boolean esPermanente) {
 
         String dniIntroducido = JOptionPane.showInputDialog("Introduce el dni :");
@@ -77,6 +66,23 @@ public class Boletin34 {
         }
 
         return new Contratado(dniIntroducido, nombreIntroducido, apellidosIntroducido, salarioBaseIntroducido, date);
+
+    }
+
+    private static ArrayList<Empleado> vizualizacion(ArrayList<Empleado> empleados) {
+        if (empleados.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No hay empleados registrados");
+        } else {
+            Empleado emp = empleados.get(empleados.size() - 1);
+            if (emp instanceof Contratado) {
+                Contratado contratado = (Contratado) emp;
+                JOptionPane.showMessageDialog(null, "\n Empleado Contratado: " + emp.toString() + "\n El salario basico: €" + contratado.calcularSalario());
+            } else if (emp instanceof Permanente) {
+                Permanente permanente = (Permanente) emp;
+                JOptionPane.showMessageDialog(null, "\n Empleado Permanente: " + emp.toString() + "\n El salario basico: €" + permanente.calcularSalario());
+            }
+        }
+        return empleados;
 
     }
 }
