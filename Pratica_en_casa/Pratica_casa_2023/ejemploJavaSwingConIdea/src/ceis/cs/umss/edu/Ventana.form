@@ -70,7 +70,7 @@
           <focusCycleRoot value="false"/>
           <focusTraversalPolicyProvider value="false"/>
           <inheritsPopupMenu value="false"/>
-          <margin top="3" left="5" bottom="2" right="5"/>
+          <margin top="15" left="5" bottom="2" right="5"/>
           <opaque value="true"/>
           <requestFocusEnabled value="true"/>
           <selectionColor color="-16777216"/>

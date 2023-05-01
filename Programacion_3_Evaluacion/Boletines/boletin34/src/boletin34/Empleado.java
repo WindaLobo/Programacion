@@ -1,7 +1,7 @@
 package boletin34;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+
 
 
 public  abstract  class   Empleado {

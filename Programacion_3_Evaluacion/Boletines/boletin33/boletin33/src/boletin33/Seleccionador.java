@@ -13,7 +13,7 @@ public class Seleccionador extends SeleccionFutbol{
     }
       @Override
     public String toString() {
-        return "\nId: " + id + "\nNombre: " + nombre + "\nApellido: " + apellido + "\nEdad: " + edad ;
+        return super.toString();
     }
 
     

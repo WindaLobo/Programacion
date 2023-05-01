@@ -2,6 +2,7 @@ package boletin34;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Locale;
 import javax.swing.JOptionPane;
@@ -10,7 +11,7 @@ public class Boletin34 {
 
     public static void main(String[] args) {
 
-        String[] opciones = {"Contratado", "Permanente", "Visualizar", "Salir"};
+        String[] opciones = {"Crear", "Visualizar", "Salir"};
         String Opcion = "";
         ArrayList<Empleado> empleados = new ArrayList<>();
 
@@ -22,30 +23,35 @@ public class Boletin34 {
             if (Opcion == null) {
                 break;
             }
+            try {
+                switch (Opcion.toUpperCase()) {
 
-            switch (Opcion.toUpperCase()) {
+                    case "CREAR":
+                        empleados.add(crear());
+                        break;
 
-                case "CONTRATADO":
-                    empleados.add(datosIntroducido(false));
-                    break;
+                    case "VISUALIZAR":
+                        visualizar(empleados);
+                        break;
 
-                case "PERMANENTE":
-                    empleados.add(datosIntroducido(true));
-                    break;
-
-                case "VISUALIZAR":
-                    vizualizacion(empleados);
-
-                    break;
-
-                case "SALIR":
-
-                    break;
+                    case "SALIR":
+                        break;
+                }
+            } catch (DateTimeParseException ex) {
+                JOptionPane.showMessageDialog(null, "Formato de fecha invalido");
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage());
             }
+
         } while (!Opcion.equalsIgnoreCase("SALIR"));
     }
 
-    private static Empleado datosIntroducido(boolean esPermanente) {
+    private static Empleado crear() {
+
+        String[] tiposEmpleado = {"Contratado", "Permanente"};
+
+        String tipoEmpleado = (String) JOptionPane.showInputDialog(null, "Tipo empleado", "Opcion",
+                JOptionPane.QUESTION_MESSAGE, null, tiposEmpleado, tiposEmpleado[0]);
 
         String dniIntroducido = JOptionPane.showInputDialog("Introduce el dni :");
 
@@ -56,33 +62,35 @@ public class Boletin34 {
         double salarioBaseIntroducido = Double.parseDouble(JOptionPane.showInputDialog("Introduce el Salario Base :"));
 
         String fehcaContratacion = JOptionPane.showInputDialog("Introduce la Fecha DD/MM/YYYY :");
+
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/M/yyyy", Locale.ENGLISH);
+
         LocalDate date = LocalDate.parse(fehcaContratacion, formatter);
 
-        if (esPermanente) {
+        if (tipoEmpleado.equalsIgnoreCase("PERMANENTE")) {
             int ClienteContratado = Integer.parseInt(JOptionPane.showInputDialog("Introduce Los cliente contratados :"));
             return new Permanente(dniIntroducido, nombreIntroducido, apellidosIntroducido, ClienteContratado, salarioBaseIntroducido, date);
-
         }
-
+        
         return new Contratado(dniIntroducido, nombreIntroducido, apellidosIntroducido, salarioBaseIntroducido, date);
-
     }
 
-    private static ArrayList<Empleado> vizualizacion(ArrayList<Empleado> empleados) {
+    private static void visualizar(ArrayList<Empleado> empleados) {
+        String datos = "";
         if (empleados.isEmpty()) {
             JOptionPane.showMessageDialog(null, "No hay empleados registrados");
         } else {
-            Empleado emp = empleados.get(empleados.size() - 1);
-            if (emp instanceof Contratado) {
-                Contratado contratado = (Contratado) emp;
-                JOptionPane.showMessageDialog(null, "\n Empleado Contratado: " + emp.toString() + "\n El salario basico: €" + contratado.calcularSalario());
-            } else if (emp instanceof Permanente) {
-                Permanente permanente = (Permanente) emp;
-                JOptionPane.showMessageDialog(null, "\n Empleado Permanente: " + emp.toString() + "\n El salario basico: €" + permanente.calcularSalario());
+            for (Empleado emp : empleados) {
+                if (emp instanceof Contratado) {
+                    Contratado contratado = (Contratado) emp;
+                    datos += "Empleado Contratado: " + emp.toString() + "\n El salario basico: €" + contratado.calcularSalario() + "\n\n";
+                } else if (emp instanceof Permanente) {
+                    Permanente permanente = (Permanente) emp;
+                    datos += "Empleado Permanente: " + emp.toString() + "\n El salario basico: €" + permanente.calcularSalario() + "\n\n";
+                }
             }
+            JOptionPane.showMessageDialog(null, datos);
         }
-        return empleados;
 
     }
 }
