@@ -1,17 +1,13 @@
 package boletin34;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-import java.util.ArrayList;
-import java.util.Locale;
 import javax.swing.JOptionPane;
+import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
 public class Boletin34 {
 
     public static void main(String[] args) {
-
-        String[] opciones = {"Crear", "Visualizar", "Salir"};
+        /*String[] opciones = {"Crear", "Visualizar", "Salir"};
         String Opcion = "";
         ArrayList<Empleado> empleados = new ArrayList<>();
 
@@ -47,6 +43,7 @@ public class Boletin34 {
     }
 
     private static Empleado crear() {
+        
 
         String[] tiposEmpleado = {"Contratado", "Permanente"};
 
@@ -90,7 +87,13 @@ public class Boletin34 {
                 }
             }
             JOptionPane.showMessageDialog(null, datos);
-        }
+        }*/
 
+            Ventana prueba = new Ventana();
+            prueba.setVisible(true);
+            prueba.setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+        
     }
+
 }

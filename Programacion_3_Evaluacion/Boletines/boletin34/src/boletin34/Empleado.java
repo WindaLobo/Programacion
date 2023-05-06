@@ -19,6 +19,7 @@ public  abstract  class   Empleado {
         this.fechaDeIngreso=fechaDeIngreso;
     
     }
+   
 
     public String getDni() {
         return dni;
@@ -64,7 +65,7 @@ public  abstract  class   Empleado {
 
     @Override
     public String toString() {
-        return  "\ndni: " + dni + "\nnombre: " + nombre + "\napellidos: " + apellidos + "\n EL salario Base es: " +salarioBase+ "€" + "\nFecha de Ingreso : " +fechaDeIngreso ;
+        return  "\ndni:" + dni + "\nNombre: " + nombre + "\nApellidos: " + apellidos + "\nEL salario Base es: " +salarioBase+ "€" + "\nFecha de Ingreso : " +fechaDeIngreso ;
     }
     
     

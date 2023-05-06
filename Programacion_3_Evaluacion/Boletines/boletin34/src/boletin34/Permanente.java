@@ -28,7 +28,7 @@ public class Permanente extends Empleado {
 
     @Override
     public String toString() {
-        return super.toString() + clientesCaptados;
+        return super.toString() +"\nClientes Contratados : "+ clientesCaptados;
     }
 
 }
