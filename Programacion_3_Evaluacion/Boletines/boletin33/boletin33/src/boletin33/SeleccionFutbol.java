@@ -49,23 +49,23 @@ public abstract class SeleccionFutbol  implements IntegranteSeleccionDeFutbol {
     
     @Override
     public void concentrarse() {
-        System.out.println("No se concentra en el partido");
+       
     }
 
     @Override
     public void viajar() {
-        System.out.println("Viajar");
+       
     }
 
    
     @Override
     public void entrenar() {
-        System.out.println("Entrenar");
+       
     }
 
     @Override
     public void jugarPartido() {
-        System.out.println("Juega en el partido");
+       
     }
 
     @Override

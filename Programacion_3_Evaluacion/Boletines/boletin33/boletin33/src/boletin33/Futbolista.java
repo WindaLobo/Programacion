@@ -31,6 +31,32 @@ public class Futbolista extends SeleccionFutbol {
     public void setDemarcacion(String demarcacion) {
         this.demarcacion = demarcacion;
     }
+      void planificarEntrenamiento(){
+        System.out.println("No tiene planifacion");
+        
+    }
+      @Override
+    public void concentrarse() {
+          System.out.println("futbolista no se  concentrarse");
+    }
+
+    @Override
+    public void viajar() {
+        System.out.println("Futbolista Viajar");
+       
+    }
+
+   
+    @Override
+    public void entrenar() {
+        System.out.println("Futbolista entrena");
+    }
+
+    @Override
+    public void jugarPartido() {
+        System.out.println("El futbolista juega un partido");
+    }
+
 
     @Override
     public String toString() {

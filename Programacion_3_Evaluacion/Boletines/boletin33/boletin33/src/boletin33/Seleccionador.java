@@ -11,6 +11,32 @@ public class Seleccionador extends SeleccionFutbol{
         System.out.println("Selecion de jugador");
         
     }
+       void planificarEntrenamiento(){
+        System.out.println("No tiene planifacion");
+        
+    }
+      @Override
+    public void concentrarse() {
+          System.out.println("Seleccion de futbol Concentrarse");
+    }
+
+    @Override
+    public void viajar() {
+        System.out.println("Seleccion Viaja");
+       
+    }
+
+   
+    @Override
+    public void entrenar() {
+        System.out.println("Seleccion entrena");
+    }
+
+    @Override
+    public void jugarPartido() {
+        System.out.println("El Seleccionador juega un partido");
+    }
+
       @Override
     public String toString() {
         return super.toString();

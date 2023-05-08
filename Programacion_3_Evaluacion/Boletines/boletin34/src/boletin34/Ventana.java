@@ -45,7 +45,7 @@ public class Ventana extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        jPanel1.setBackground(java.awt.SystemColor.activeCaption);
+        jPanel1.setBackground(new java.awt.Color(102, 153, 255));
 
         jLabelNombre.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabelNombre.setText("Nombre:");
@@ -109,13 +109,13 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
 
-        jTextAreaVisualizar.setBackground(java.awt.SystemColor.activeCaption);
+        jTextAreaVisualizar.setBackground(new java.awt.Color(102, 153, 255));
         jTextAreaVisualizar.setColumns(20);
         jTextAreaVisualizar.setRows(5);
         jTextAreaVisualizar.setBorder(null);
         jScrollPane1.setViewportView(jTextAreaVisualizar);
 
-        jPanelClienteContratados.setBackground(java.awt.SystemColor.activeCaption);
+        jPanelClienteContratados.setBackground(new java.awt.Color(102, 153, 255));
 
         jLabeClientesCaptado.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabeClientesCaptado.setText("Clientes Contratados:");

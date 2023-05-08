@@ -14,24 +14,24 @@ public class Boletin33 {
     private static void presentarSeleccion(ArrayList<SeleccionFutbol> seleccionFutbol) {
         for (SeleccionFutbol seleccionFutbolista : seleccionFutbol) {
             
-            if (seleccionFutbolista instanceof Futbolista) {//// Comprueba si seleccion futbolista es un objecto futbolista con instanceof(palabra reservada);
+            if (seleccionFutbolista instanceof Futbolista) {// Comprueba si seleccion futbolista es un objecto futbolista con instanceof(palabra reservada);
                 Futbolista futbolista = (Futbolista) seleccionFutbolista;
                 System.out.println("\n Futbolista : " + futbolista.toString());
                 futbolista.entrevista();
             }
 
-            if (seleccionFutbolista instanceof Entrenador) {// Comprueba si seleccion futbolista es un objecto futbolista con instanceof(palabra reservada);
+            if (seleccionFutbolista instanceof Entrenador) {// Comprueba si seleccion entrenador es un objecto futbolista con instanceof(palabra reservada);
                 Entrenador entrenador = (Entrenador) seleccionFutbolista;
                 System.out.println("\n Entrenador : " + entrenador.toString());
                 entrenador.planificarEntrenamiento();
             }
 
-            if (seleccionFutbolista instanceof Masajista) {// Comprueba si seleccion futbolista es un objecto futbolista con instanceof(palabra reservada);
+            if (seleccionFutbolista instanceof Masajista) {// Comprueba si seleccion masajista es un objecto futbolista con instanceof(palabra reservada);
                 Masajista masajista = (Masajista) seleccionFutbolista;
                 System.out.println("\n Masajista : " + masajista.toString());
                 masajista.darMasaje();
             }
-            if (seleccionFutbolista instanceof Seleccionador) {// Comprueba si seleccion futbolista es un objecto futbolista con instanceof(palabra reservada);
+            if (seleccionFutbolista instanceof Seleccionador) {// Comprueba si seleccion seleccionador es un objecto futbolista con instanceof(palabra reservada);
                 Seleccionador seleccionador = (Seleccionador) seleccionFutbolista;
                 System.out.println("\n Seleccionador : " + seleccionador.toString());
                 seleccionador.seleccionarXogador();

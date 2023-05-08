@@ -31,6 +31,26 @@ public class Masajista extends SeleccionFutbol {
     public void setAñoDeExperiencia(int añoDeExperiencia) {
         this.añoDeExperiencia = añoDeExperiencia;
     }
+     public void concentrarse() {
+          System.out.println("El masajista no se concentra");
+    }
+
+    @Override
+    public void viajar() {
+        System.out.println("Masajista Viaja");
+       
+    }
+
+   
+    @Override
+    public void entrenar() {
+        System.out.println("Masajista entrena");
+    }
+
+    @Override
+    public void jugarPartido() {
+        System.out.println("El masajista juega un partido");
+    }
 
     @Override
     public String toString() {

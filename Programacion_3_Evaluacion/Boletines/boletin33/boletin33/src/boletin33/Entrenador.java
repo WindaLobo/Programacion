@@ -23,6 +23,27 @@ public class Entrenador extends SeleccionFutbol {
         System.out.println("No tiene planifacion");
         
     }
+      @Override
+    public void concentrarse() {
+          System.out.println("Entrenador no se Concentra");
+    }
+
+    @Override
+    public void viajar() {
+        System.out.println("Entrenador Viaja");
+       
+    }
+
+   
+    @Override
+    public void entrenar() {
+        System.out.println("Entrenador entrena");
+    }
+
+    @Override
+    public void jugarPartido() {
+        System.out.println("El entrenador juega un partido");
+    }
 
      @Override
     public String toString() {
