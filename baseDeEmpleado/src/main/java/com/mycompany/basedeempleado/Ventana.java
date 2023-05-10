@@ -7,20 +7,24 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import modelo.Empleado;
+import modelo.Permanente;
+import repositorio.EmpleadoRepositorio;
 
 public class Ventana extends javax.swing.JFrame {
 
     ArrayList<Empleado> empleados = new ArrayList<>();
+    Empleado empleadoSeleccionado = null;
 
     public Ventana() throws SQLException {
 
         initComponents();
         this.setLocationRelativeTo(this);
-        ConexionBaseDeDatos emple = new ConexionBaseDeDatos();
+        EmpleadoRepositorio emple = new EmpleadoRepositorio();
         empleados = emple.obtenerEmpleados();
         cargar(empleados);
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -250,7 +254,7 @@ public class Ventana extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonCrearjButtonCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCrearjButtonCrearActionPerformed
-        Empleado empleado;
+      /*  Empleado empleado;
         try {
             String dniIntroducido = jTextFieldDNI.getText();
             String nombreIntroducido = jTextFieldNombre.getText();
@@ -279,7 +283,7 @@ public class Ventana extends javax.swing.JFrame {
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());
 
-        }
+        }*/
 
     }//GEN-LAST:event_jButtonCrearjButtonCrearActionPerformed
 
@@ -288,12 +292,12 @@ public class Ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonSalirjButtonSalirActionPerformed
 
     private void cmbTipoContratoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbTipoContratoActionPerformed
-        String selectedOption = cmbTipoContrato.getSelectedItem().toString();
+     /*   String selectedOption = cmbTipoContrato.getSelectedItem().toString();
         if (selectedOption.equalsIgnoreCase("PERMANENTE")) {
             jPanelClienteContratados.setVisible(true);
         } else {
             jPanelClienteContratados.setVisible(false);
-        }
+        }*/
     }//GEN-LAST:event_cmbTipoContratoActionPerformed
 
     private void jButtonNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNuevoActionPerformed
@@ -305,8 +309,8 @@ public class Ventana extends javax.swing.JFrame {
         jTextFieldCientesContratado.setText("");
     }//GEN-LAST:event_jButtonNuevoActionPerformed
 
-    private static String visualizar(ArrayList<Empleado> empleados) {
-        StringBuilder sb = new StringBuilder();
+   /*  private static String visualizar(ArrayList<Empleado> empleados) {
+       StringBuilder sb = new StringBuilder();
         if (empleados.isEmpty()) {
             sb.append("No hay empleados registrados");
         } else {
@@ -323,7 +327,7 @@ public class Ventana extends javax.swing.JFrame {
             }
         }
         return sb.toString();
-    }
+    }*/
 
     private void cargar(ArrayList<Empleado> obtenerEmpleados) {
 
@@ -337,7 +341,6 @@ public class Ventana extends javax.swing.JFrame {
         modeloTabla.addColumn("Salario base");
         modeloTabla.addColumn("Fecha");
         modeloTabla.addColumn("Tipo de contrato");
-
         for (Empleado empleado : obtenerEmpleados) {
             Object[] fila = new Object[8];
           
@@ -348,10 +351,11 @@ public class Ventana extends javax.swing.JFrame {
               if (empleado instanceof Permanente) {
                 Permanente permanente = (Permanente) empleado;
                 fila[4] = permanente.getClientesCaptados();
+                
             }
             fila[5] = empleado.getSalarioBase();
             fila[6] = empleado.getFechaDeIngreso();
-            fila[7] = empleado instanceof Contratado ? "Permanente" : "Contratado";
+          fila[7] = empleado instanceof Permanente ? "Permanente" : "Contratado";
             modeloTabla.addRow(fila);
         }
 

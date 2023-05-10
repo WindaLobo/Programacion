@@ -1,0 +1,32 @@
+class ConexionBaseDeDatos (EmpleadoRepositorio)
+ => Clase para acceder a la base de datos (SELECT, INSERT, UPDATE, DELETE)
+
+
+   => public ArrayList<Empleado> obtenerTodos();
+   => public Empleado crear(Empleado empleado)
+   => public void actualizar(Empleado empleado)
+   => public void eliminar(Empleado empleado) / public void eliminar(int idEmpleado)
+	 
+   => private Connection establecerConexion()
+   
+   
+   
+ => Detectar si un empleado existe o no en la base de datos
+    => Empleado.IdEmpleado == 0 => crear
+	=> Empleado.IdEmpleado != 0 => actualizar
+	
+	
+	
+class Ventana
+
+  BOTONES
+    => NUEVO => Limpiar controles
+    => GUARDAR 
+         => Empleado nuevo => crear
+         => Empleado existente => actualizar		 
+    => ELIMINAR => eliminar
+	
+  TABLA
+    => Buscar evento de fila seleccionada (JTable.SelectedRow ...)
+	=> Obtener el id del empleado de esa fila
+	=> Buscar en el arraylist de empleados y cargar los demas controles

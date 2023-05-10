@@ -1,4 +1,4 @@
-package com.mycompany.basedeempleado;
+package modelo;
 
 import java.time.LocalDate;
 

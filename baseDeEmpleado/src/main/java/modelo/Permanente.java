@@ -1,4 +1,6 @@
-package com.mycompany.basedeempleado;
+package modelo;
+
+
 
 
 import java.time.LocalDate;
@@ -14,7 +16,7 @@ public class Permanente extends Empleado {
     }
    public Permanente(int IdEmpleado,String nombre, String apellidos,String dni,  int clientesCaptados, double salarioBase, LocalDate fechaDeIngreso) {
         super(IdEmpleado, nombre, apellidos,dni, salarioBase, fechaDeIngreso);
-   
+        this.clientesCaptados = clientesCaptados;
    }
     public int getClientesCaptados() {
         return clientesCaptados;
@@ -32,7 +34,7 @@ public class Permanente extends Empleado {
 
     @Override
     public String toString() {
-        return super.toString() +"\nClientes Contratados : "+ clientesCaptados;
+            return super.toString() +"\nClientes Contratados : "+ clientesCaptados;
     }
 
 }
