@@ -15,6 +15,7 @@ create table Empleado(
     Nombre varchar(50) NOT NULL,
     Apellidos varchar(50) NOT NULL,
     Dni varchar(50) NOT NULL,
+    ClienteContratado Integer not null;
 	SalarioBase DECIMAL(10,2) NOT NULL,
 	Fecha DATE NOT NULL,
 	IdtipoContrato INTEGER  NOT NULL,
@@ -26,8 +27,8 @@ INSERT INTO tipoContrato (IdtipoContrato, Nombre)
 VALUES 
     (1, 'Permanente'),
     (2, 'Contratado');
-INSERT INTO Empleado (Nombre,Apellidos,Dni,SalarioBase,Fecha,IdtipoContrato)
-values('Windar','Lobo Garces',22124628,1500,'10/03/2022',1);
+INSERT INTO Empleado (Nombre,Apellidos,Dni,ClienteContratado ,SalarioBase,Fecha,IdtipoContrato)
+values('Windar','Lobo Garces',22124628,10;1500,'10/03/2022',1);
 
 /*MOSTRAR*/
 select * from Empleado;

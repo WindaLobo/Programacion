@@ -1,4 +1,4 @@
-package boletin34;
+package com.mycompany.basedeempleado;
 
 import java.time.LocalDate;
 import java.time.Period;
@@ -7,9 +7,12 @@ public class Contratado extends Empleado {
 
     public Contratado(String dni, String nombre, String apellidos, double salarioBase, LocalDate fechaDeIngreso) {
         super(dni, nombre, apellidos, salarioBase, fechaDeIngreso);
-
     }
-
+    
+    public Contratado(int IdEmpleado , String nombre, String apellidos,String dni, double salarioBase, LocalDate fechaDeIngreso ) {
+        super(IdEmpleado, nombre, apellidos,dni,salarioBase, fechaDeIngreso);
+    }
+    
     @Override
     public double calcularSalario() {
         double porcentajeAdicional;
