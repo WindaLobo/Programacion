@@ -4,6 +4,8 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.Contratado;
@@ -15,13 +17,14 @@ public class Ventana extends javax.swing.JFrame {
 
     ArrayList<Empleado> empleados = new ArrayList<>();
     Empleado empleadoSeleccionado = new Permanente();
+    EmpleadoRepositorio repositorio = new EmpleadoRepositorio();
 
     public Ventana() throws SQLException, ClassNotFoundException {
 
         initComponents();
         this.setLocationRelativeTo(this);
-        EmpleadoRepositorio emple = new EmpleadoRepositorio();
-        empleados = emple.obtenerEmpleados();
+
+        empleados = repositorio.obtenerEmpleados();
         cargar(empleados);
         establecerObjectoEnControles();
 
@@ -53,8 +56,6 @@ public class Ventana extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableListaEmpleado = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
-        jButtonCrearBD = new javax.swing.JButton();
-        jButtonActualizar = new javax.swing.JButton();
         jTextFieldID = new javax.swing.JTextField();
         jLabelNombre1 = new javax.swing.JLabel();
 
@@ -176,23 +177,6 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
 
-        jButtonCrearBD.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButtonCrearBD.setText("CREAR");
-        jButtonCrearBD.setPreferredSize(new java.awt.Dimension(89, 22));
-        jButtonCrearBD.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCrearBDActionPerformed(evt);
-            }
-        });
-
-        jButtonActualizar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButtonActualizar.setText("ACTUALIZAR");
-        jButtonActualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonActualizarActionPerformed(evt);
-            }
-        });
-
         jTextFieldID.setEditable(false);
 
         jLabelNombre1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -213,7 +197,7 @@ public class Ventana extends javax.swing.JFrame {
                             .addComponent(jPanelClienteContratados, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabelFechaContartacion)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
                                 .addComponent(jTextFieldFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -237,17 +221,13 @@ public class Ventana extends javax.swing.JFrame {
                                     .addComponent(jTextFieldSalario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(65, 65, 65))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
+                        .addGap(86, 86, 86)
                         .addComponent(jButtonNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButtonGuardar)
-                        .addGap(32, 32, 32)
-                        .addComponent(jButtonCrearBD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButtonActualizar)
-                        .addGap(31, 31, 31)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 36, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(235, 235, 235)
                 .addComponent(jButtonSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -287,11 +267,9 @@ public class Ventana extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonGuardar)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonActualizar)
-                    .addComponent(jButtonCrearBD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonSalir)
@@ -315,15 +293,22 @@ public class Ventana extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
-
         try {
-            Empleado empleado = null;
-            EmpleadoRepositorio repositorio = new EmpleadoRepositorio();
-            // Aquí puedes agregar el código para crear un nuevo empleado o actualizar uno existente
-            repositorio.insertarEmpleado(empleado);
-            JOptionPane.showMessageDialog(this, "Empleado guardado correctamente.");
-        } catch (SQLException | ClassNotFoundException ex) {
-            JOptionPane.showMessageDialog(this, "Error al guardar el empleado: " + ex.getMessage());
+            establecerControlesAObjecto();
+
+            if (empleadoSeleccionado.getIdEmpleado() == 0) {
+
+                repositorio.insertarEmpleado(empleadoSeleccionado);
+            } else {
+                repositorio.actualizarEmpleado(empleadoSeleccionado);
+            }
+            empleados = repositorio.obtenerEmpleados();
+            cargar(empleados);
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Ventana.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Ventana.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }//GEN-LAST:event_jButtonGuardarActionPerformed
@@ -345,27 +330,21 @@ public class Ventana extends javax.swing.JFrame {
         empleadoSeleccionado = new Permanente();
         establecerObjectoEnControles();
     }//GEN-LAST:event_jButtonNuevoActionPerformed
+
     private void establecerControlesAObjecto() {
         empleadoSeleccionado.setDni(jTextFieldDNI.getText());
         empleadoSeleccionado.setNombre(jTextFieldNombre.getText());
         empleadoSeleccionado.setApellidos(jTextFieldApellidos.getText());
         empleadoSeleccionado.setSalarioBase(Double.parseDouble(jTextFieldSalario.getText()));
-        if (empleadoSeleccionado.getFechaDeIngreso() != null) {
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-            String fechaTexto = jTextFieldFecha.getText();
-            LocalDate fecha = LocalDate.parse(fechaTexto, formatter);
-            empleadoSeleccionado.setFechaDeIngreso(fecha);
 
-        } else {
-            empleadoSeleccionado.getFechaDeIngreso();
-        }
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String fechaTexto = jTextFieldFecha.getText();
+        LocalDate fecha = LocalDate.parse(fechaTexto, formatter);
+        empleadoSeleccionado.setFechaDeIngreso(fecha);
 
-        if (empleadoSeleccionado instanceof Permanente) {
+        if (cmbTipoContrato.getSelectedItem().toString().equals("PERMANENTE")) {
             Permanente permanente = (Permanente) empleadoSeleccionado;
-            cmbTipoContrato.getSelectedItem();
             permanente.setClientesCaptados(Integer.parseInt(jTextFieldCientesContratado.getText()));
-        } else {
-            cmbTipoContrato.setSelectedItem("CONTRATADO");
         }
     }
 
@@ -394,73 +373,6 @@ public class Ventana extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButtonCrearBDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCrearBDActionPerformed
-
-        Empleado empleado;
-        try {
-            String dniIntroducido = jTextFieldDNI.getText();
-            String nombreIntroducido = jTextFieldNombre.getText();
-            String apellidosIntroducido = jTextFieldApellidos.getText();
-            double salarioBaseIntroducido = Double.parseDouble(jTextFieldSalario.getText());
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-            LocalDate date = LocalDate.parse(jTextFieldFecha.getText(), formatter);
-
-            String selectedOption = cmbTipoContrato.getSelectedItem().toString();
-
-            if (selectedOption.equalsIgnoreCase("PERMANENTE")) {
-                int ClienteContratado = Integer.parseInt(jTextFieldCientesContratado.getText());
-
-                empleado = new Permanente(dniIntroducido, nombreIntroducido, apellidosIntroducido, ClienteContratado, salarioBaseIntroducido, date);
-
-            } else {
-                empleado = new Contratado(dniIntroducido, nombreIntroducido, apellidosIntroducido, salarioBaseIntroducido, date);
-            }
-
-            empleados.add(empleado);
-
-        } catch (java.time.format.DateTimeParseException ex) {
-            JOptionPane.showMessageDialog(null, "Formato de fecha invalido");
-        } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(null, "Formato de numero invalido");
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage());
-
-        }
-
-
-    }//GEN-LAST:event_jButtonCrearBDActionPerformed
-
-    private void jButtonActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonActualizarActionPerformed
-        Empleado empleado = null;
-        try {
-
-            String dniIntroducido = jTextFieldDNI.getText();
-            String nombreIntroducido = jTextFieldNombre.getText();
-            String apellidosIntroducido = jTextFieldApellidos.getText();
-            double salarioBaseIntroducido = Double.parseDouble(jTextFieldSalario.getText());
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-            LocalDate date = LocalDate.parse(jTextFieldFecha.getText(), formatter);
-
-            if (empleado instanceof Permanente) {
-                int ClienteContratado = Integer.parseInt(jTextFieldCientesContratado.getText());
-
-                empleado = new Permanente(dniIntroducido, nombreIntroducido, apellidosIntroducido, ClienteContratado, salarioBaseIntroducido, date);
-            } else {
-                empleado = new Contratado(dniIntroducido, nombreIntroducido, apellidosIntroducido, salarioBaseIntroducido, date);
-            }
-
-            EmpleadoRepositorio repositorio = new EmpleadoRepositorio();
-            repositorio.actualizarEmpleado(empleado);
-
-            JOptionPane.showMessageDialog(this, "Empleado actualizado correctamente.");
-
-        } catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(this, "Error al leer los valores de entrada: " + ex.getMessage());
-        } catch (Exception ex) {
-            JOptionPane.showMessageDialog(this, "Error al actualizar el empleado: " + ex.getMessage());
-        }
-    }//GEN-LAST:event_jButtonActualizarActionPerformed
 
     private void cargar(ArrayList<Empleado> obtenerEmpleados) {
 
@@ -498,8 +410,6 @@ public class Ventana extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> cmbTipoContrato;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButtonActualizar;
-    private javax.swing.JButton jButtonCrearBD;
     private javax.swing.JButton jButtonGuardar;
     private javax.swing.JButton jButtonNuevo;
     private javax.swing.JButton jButtonSalir;
