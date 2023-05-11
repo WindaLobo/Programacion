@@ -11,20 +11,21 @@ import repositorio.EmpleadoRepositorio;
 public class BaseDeEmpleado {
 
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        /* Ventana prueba = new Ventana();
+     Ventana prueba = new Ventana();
             prueba.setVisible(true);
-            prueba.setDefaultCloseOperation(EXIT_ON_CLOSE);*/
+            prueba.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-        EmpleadoRepositorio emple = new EmpleadoRepositorio();
-        Empleado empleado = new Permanente(4,"asdsada", "adrian", "Estevez", 100, 1000, LocalDate.now());
+      //EmpleadoRepositorio emple = new EmpleadoRepositorio();
+       // Empleado empleado = new Permanente(5,"asdsada", "adrian", "Estevez", 100, 1000, LocalDate.now());
        // emple.insertarEmpleado(empleado);
-       emple.obtenerEmpleados();
-       emple.actualizarEmpleado(empleado);
+      // emple.obtenerEmpleados();
+      // emple.actualizarEmpleado(empleado);
+     // emple.eliminarEmpleado(empleado);
        
        
         
         
-         empleado = new Contratado( "asdsada", "adrian", "Estevez", 1200, LocalDate.now());
+         //empleado = new Contratado( "asdsada", "adrian", "Estevez", 1200, LocalDate.now());
         // emple.insertarEmpleado(empleado);
        
        // emple.actualizarEmpleado(empleado);

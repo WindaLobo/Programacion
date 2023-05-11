@@ -28,7 +28,8 @@ VALUES
     (1, 'Permanente'),
     (2, 'Contratado');
 
-
+INSERT INTO Empleado (Nombre,Apellidos,Dni,ClienteContratado ,SalarioBase,Fecha,IdtipoContrato)
+values('Windar','Lobo Garces',22124628,10,1500,'10/03/2022',1);
 /*MOSTRAR*/
 select * from Empleado;
 

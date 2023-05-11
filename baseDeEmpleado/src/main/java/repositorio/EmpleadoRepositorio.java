@@ -1,7 +1,6 @@
 package repositorio;
 
 import modelo.Contratado;
-import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
@@ -10,8 +9,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 import modelo.Empleado;
 import modelo.Permanente;
 
@@ -53,9 +50,7 @@ public class EmpleadoRepositorio {
                         resultado.getString("Dni"),
                         resultado.getInt("clientecontratado"),
                         resultado.getDouble("SalarioBase"),
-                        resultado.getDate("Fecha").toLocalDate()
-                );
-
+                        resultado.getDate("Fecha").toLocalDate());
             } else {
                 empleado = new Contratado(
                         resultado.getInt("IdEmpleado"),
@@ -63,9 +58,7 @@ public class EmpleadoRepositorio {
                         resultado.getString("Apellidos"),
                         resultado.getString("Dni"),
                         resultado.getDouble("SalarioBase"),
-                        resultado.getDate("Fecha").toLocalDate()
-                );
-
+                        resultado.getDate("Fecha").toLocalDate());
             }
             empleados.add(empleado);
         }
@@ -78,7 +71,7 @@ public class EmpleadoRepositorio {
         Connection conexion = establecerConexion();
         String sql = "INSERT INTO Empleado (Nombre, Apellidos, Dni, ClienteContratado, SalarioBase, Fecha, IdtipoContrato) "
                 + "VALUES (?, ?, ?, ?, ?, ?, ?)";
-        
+
         PreparedStatement statement = conexion.prepareStatement(sql);
         statement.setString(1, empleado.getNombre());
         statement.setString(2, empleado.getApellidos());
@@ -126,6 +119,15 @@ public class EmpleadoRepositorio {
     }*/
 
     }
-    
+
+    public void eliminarEmpleado(Empleado empleado) throws SQLException, ClassNotFoundException {
+        Connection conexion = establecerConexion();
+        String sql = "DELETE FROM Empleado WHERE IdEmpleado = ?";
+        PreparedStatement statement = conexion.prepareStatement(sql);
+        statement.setInt(1, empleado.getIdEmpleado());
+        statement.executeUpdate();
+        conexion.close();
+
+    }
 
 }
