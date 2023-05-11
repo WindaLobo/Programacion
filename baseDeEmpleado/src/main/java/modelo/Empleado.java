@@ -29,6 +29,9 @@ public abstract class Empleado {
         this.fechaDeIngreso = fechaDeIngreso;
 
     }
+    public Empleado(){
+        
+    }
 
     public String getDni() {
         return dni;

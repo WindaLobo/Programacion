@@ -18,6 +18,9 @@ public class Permanente extends Empleado {
         super(IdEmpleado, nombre, apellidos,dni, salarioBase, fechaDeIngreso);
         this.clientesCaptados = clientesCaptados;
    }
+    public Permanente() {
+       super();
+   }
     public int getClientesCaptados() {
         return clientesCaptados;
     }
