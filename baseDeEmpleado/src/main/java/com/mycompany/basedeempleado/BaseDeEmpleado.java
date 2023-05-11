@@ -1,7 +1,5 @@
 package com.mycompany.basedeempleado;
 
-
-
 import java.sql.SQLException;
 import java.time.LocalDate;
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
@@ -12,20 +10,25 @@ import repositorio.EmpleadoRepositorio;
 
 public class BaseDeEmpleado {
 
-    public static void main(String[] args) throws SQLException {
-     Ventana prueba = new Ventana();
+    public static void main(String[] args) throws SQLException, ClassNotFoundException {
+        /* Ventana prueba = new Ventana();
             prueba.setVisible(true);
-            prueba.setDefaultCloseOperation(EXIT_ON_CLOSE);
-      
-      
-            /* EmpleadoRepositorio emple = new EmpleadoRepositorio();
-             
-             Empleado empleado = new Permanente("asdsada", "adrian", "Estevez", 1, 1500, LocalDate.now());
-             emple.insertarEmpleado(empleado);
-            
-             
-             empleado = new Contratado("asdsada", "adrian", "Estevez", 1500, LocalDate.now());
-             emple.insertarEmpleado(empleado);*/
-                 
+            prueba.setDefaultCloseOperation(EXIT_ON_CLOSE);*/
+
+        EmpleadoRepositorio emple = new EmpleadoRepositorio();
+        Empleado empleado = new Permanente(4,"asdsada", "adrian", "Estevez", 100, 1000, LocalDate.now());
+       // emple.insertarEmpleado(empleado);
+       emple.obtenerEmpleados();
+       emple.actualizarEmpleado(empleado);
+       
+       
+        
+        
+         empleado = new Contratado( "asdsada", "adrian", "Estevez", 1200, LocalDate.now());
+        // emple.insertarEmpleado(empleado);
+       
+       // emple.actualizarEmpleado(empleado);
+       // System.out.println(empleado);
+
     }
 }
