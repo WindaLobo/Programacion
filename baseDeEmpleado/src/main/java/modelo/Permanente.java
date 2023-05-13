@@ -10,7 +10,7 @@ public class Permanente extends Empleado {
     private int clientesCaptados;
 
    public Permanente(String dni, String nombre, String apellidos, int clientesCaptados, double salarioBase, LocalDate fechaDeIngreso) {
-        super(dni, nombre, apellidos, salarioBase, fechaDeIngreso);
+        super(dni, nombre, apellidos, salarioBase,fechaDeIngreso);
         this.clientesCaptados = clientesCaptados;
 
     }

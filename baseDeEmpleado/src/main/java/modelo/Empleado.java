@@ -16,7 +16,7 @@ public abstract class Empleado {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.salarioBase = salarioBase;
-        this.fechaDeIngreso = fechaDeIngreso;
+         this.fechaDeIngreso = fechaDeIngreso;
 
     }
 
@@ -83,10 +83,12 @@ public abstract class Empleado {
         this.IdEmpleado = IdEmpleado;
     }
 
+    
     @Override
     public String toString() {
         return "\ndni:" + dni + "\nNombre: " + nombre + "\nApellidos: " + apellidos + "\nEL salario Base es: " + salarioBase + "€" + "\nFecha de Ingreso : " + fechaDeIngreso;
     }
 
+   
 
 }
