@@ -30,7 +30,7 @@ public class Ventana extends javax.swing.JFrame {
 
         empleados = repositorio.obtenerEmpleados();
         cargar(empleados);
-        establecerObjectoEnControles();
+        establecerObjetoEnControles();
 
         jTableListaEmpleado.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
@@ -323,11 +323,11 @@ public class Ventana extends javax.swing.JFrame {
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
 
         try {
-            establecerControlesAObjecto();
+            establecerControlesAObjeto();
 
             if (empleadoSeleccionado.getIdEmpleado() == 0) {
-
                 repositorio.insertarEmpleado(empleadoSeleccionado);
+                establecerObjetoEnControles();
             } else {
                 repositorio.actualizarEmpleado(empleadoSeleccionado);
             }
@@ -355,8 +355,7 @@ public class Ventana extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cmbTipoContratoActionPerformed
     private void jButtonNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNuevoActionPerformed
-        empleadoSeleccionado = new Permanente();
-        establecerObjectoEnControles();
+        Nuevo();
     }//GEN-LAST:event_jButtonNuevoActionPerformed
     private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
 
@@ -364,6 +363,7 @@ public class Ventana extends javax.swing.JFrame {
             repositorio.eliminarEmpleado(empleadoSeleccionado);
             empleados = repositorio.obtenerEmpleados();
             cargar(empleados);
+            Nuevo();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error : " + ex.toString());
         } catch (ClassNotFoundException ex) {
@@ -371,6 +371,12 @@ public class Ventana extends javax.swing.JFrame {
 
         }
     }//GEN-LAST:event_jButtonEliminarActionPerformed
+
+    private void Nuevo() {
+        empleadoSeleccionado = new Permanente();
+        establecerObjetoEnControles();
+    }
+
     private void cargar(ArrayList<Empleado> obtenerEmpleados) {
 
         DefaultTableModel modeloTabla = new DefaultTableModel();
@@ -403,14 +409,15 @@ public class Ventana extends javax.swing.JFrame {
             fila[7] = empleado.getFechaDeIngreso();
             fila[8] = empleado instanceof Permanente ? "Permanente" : "Contratado";
             modeloTabla.addRow(fila);
-                       
+
         }
         jTableListaEmpleado.setModel(modeloTabla);
-         tamañoJtable();
+        tamañoJtable();
     }
+
     private void tamañoJtable() {
         TableColumnModel columnModel = jTableListaEmpleado.getColumnModel();
-        
+
         columnModel.getColumn(0).setPreferredWidth(50);
         columnModel.getColumn(1).setPreferredWidth(150);
         columnModel.getColumn(2).setPreferredWidth(150);
@@ -422,7 +429,7 @@ public class Ventana extends javax.swing.JFrame {
         columnModel.getColumn(8).setPreferredWidth(300);
     }
 
-    private void establecerControlesAObjecto() {
+    private void establecerControlesAObjeto() {
 
         try {
             empleadoSeleccionado.setNombre(jTextFielNombre.getText());
@@ -450,7 +457,7 @@ public class Ventana extends javax.swing.JFrame {
         }
     }
 
-    private void establecerObjectoEnControles() {
+    private void establecerObjetoEnControles() {
 
         try {
             jTextFieldID.setText(String.valueOf(empleadoSeleccionado.getIdEmpleado()));
@@ -496,10 +503,8 @@ public class Ventana extends javax.swing.JFrame {
                     break;
                 }
             }
-            establecerObjectoEnControles();
+            establecerObjetoEnControles();
         }
-        
-     
 
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables

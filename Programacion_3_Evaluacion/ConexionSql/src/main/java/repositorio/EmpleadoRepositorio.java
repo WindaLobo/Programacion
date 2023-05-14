@@ -72,7 +72,7 @@ public class EmpleadoRepositorio {
         String sql = "INSERT INTO Empleado (Nombre, Apellidos, Dni, ClienteContratado, SalarioBase, Fecha, IdtipoContrato) "
                 + "VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-        PreparedStatement statement = conexion.prepareStatement(sql);
+        PreparedStatement statement = conexion.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
         statement.setString(1, empleado.getNombre());
         statement.setString(2, empleado.getApellidos());
         statement.setString(3, empleado.getDni());
@@ -87,6 +87,16 @@ public class EmpleadoRepositorio {
         statement.setInt(7, empleado instanceof Permanente ? 1 : 2);
         // statement lo q haces es q ejecuta la sentencia SQL preparada y devuelve el número de filas afectadas por la operación
         statement.executeUpdate();
+
+        //Funcion utilizada para obtener el id autogenerado en base de datos y se asigna al id del empleado
+        try ( ResultSet generatedKeys = statement.getGeneratedKeys()) {
+            if (generatedKeys.next()) {
+                empleado.setIdEmpleado(generatedKeys.getInt(1));
+            } else {
+                throw new SQLException("Error al obtener el id del empelado.");
+            }
+        }
+
         conectar.close();
     }
 
@@ -111,7 +121,6 @@ public class EmpleadoRepositorio {
         statement.setInt(8, empleado.getIdEmpleado());
         statement.executeUpdate();
         conectar.close();
-      
 
     }
 
